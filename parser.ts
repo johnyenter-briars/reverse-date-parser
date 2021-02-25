@@ -126,19 +126,6 @@ function validMatch(matchElement: any): boolean{
             matchElement.possibleMatch1.type != matchElement.possibleMatch2.type;
 }   
 
-
-function removeInvalidMatchElements(possibleMatches: any){
-    var sanitizedMatches = [];
-
-    for(let matchPossibility of possibleMatches){
-        if(validMatch(matchPossibility)){
-            sanitizedMatches.push(matchPossibility);
-        }
-    }
-
-    return sanitizedMatches;
-}
-
 function parseDateString(dateString: string): Array<string> {
     // Step 1: split the string into groups
     for(let possibleSplit of possibleSplits){
@@ -217,13 +204,19 @@ let testSamples = [
         isValid: true,
         result: ["mm/dd/yy", "dd/mm/yy"]
 
+    },
+    {
+        data: "6 01 1998",
+        isValid: true,
+        result: ["M dd yyyy", "d MM yyyy"]
+
     }
 ]
 
 for(let sample of testSamples){
     let result = parseDateString(sample.data);
 
-    if(result != null &&
+    if( result != null &&
         result.length === sample.result.length &&
         result.every((str) => result.includes(str))
         ){
