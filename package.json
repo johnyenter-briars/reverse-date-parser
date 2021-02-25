@@ -1,0 +1,14 @@
+{
+  "name": "foo-ip",
+  "version": "0.0.1",
+  "scripts": {
+    "parse": "./node_modules/ts-node/dist/bin.js parser.ts"
+  },
+  "dependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31"
+  }
+}
