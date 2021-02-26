@@ -1,88 +1,71 @@
-// Matches date elements like '1', '7', '27'
-function get_d(dateString: string): Array<String>{
-    var regexp = new RegExp('^([1-3][0-9]|[1-9])$'),
-        regexp2 = new RegExp('^(3[2-9])$');
+function constructParseFunction(inRegex: string, outRegex: string = null): Function{
+    if(outRegex){
+        return (dateElement: string): RegExpExecArray => {
+            var regexp = new RegExp(inRegex),
+                regexp2 = new RegExp(outRegex);
 
-    if(regexp.test(dateString) && !regexp2.test(dateString)){
-        return regexp.exec(dateString);
+            if(regexp.test(dateElement) && !regexp2.test(dateElement)){
+                return regexp.exec(dateElement);
+            }
+            return null;
+        };
     }
-    return null;
-}
 
-// Matches date elements like '01', '06', '31'
-function get_dd(dateString: string): Array<String>{
-    if(dateString.length != 2) return null;
+    return (dateElement: string): RegExpExecArray => {
+        var regexp = new RegExp(inRegex);
 
-    var regexp = new RegExp('^([0-3][0-9])$'),
-        regexp2 = new RegExp('^([3-9][2-9])$');
-
-    if(regexp.test(dateString) && !regexp2.test(dateString)){
-        return regexp.exec(dateString);
-    }
-    return null;
-}
-
-// Matches date elements like '2021', '0001', '9999'
-function get_yyyy(dateString: string){
-    var regexp = new RegExp('^[0-9]{4}$');
-
-    if(regexp.test(dateString)){
-        return regexp.exec(dateString);
-    }
-    return null;
-}
-
-// Matches date elements like '01', '08', '12'
-function get_MM(dateString: string){
-    if(dateString.length != 2) return null;
-
-    var regexp = new RegExp('^[0-2][1-9]$'),
-        regexp2 = new RegExp('^[1-9][3-9]$');
-
-    if(regexp.test(dateString) && !regexp2.test(dateString)){
-        return regexp.exec(dateString);
-    }
-    return null;
+        if(regexp.test(dateElement)){
+            return regexp.exec(dateElement);
+        }
+        return null;
+    };
 }
 
 
-let possibleSections:{  sectionName: string, 
+const possibleSections:{  sectionName: string, 
                         formatSpecifier: string, 
                         regexFunc: Function,
-                        currentValue: string,
                         type: string }[] 
 = [
     {
         sectionName: "day_of_month",
         formatSpecifier: "d",
-        regexFunc: get_d,
-        currentValue: null,
+        regexFunc: constructParseFunction('^([1-3][0-9]|[1-9])$', '^(3[2-9])$'),
         type: "day"
     },
     {
         sectionName: "day_of_month_two_digits",
         formatSpecifier: "dd",
-        regexFunc: get_dd,
-        currentValue: null,
+        regexFunc: constructParseFunction('^([0-3][0-9])$', '^([3-9][2-9])$'),
         type: "day"
     },
     {
         sectionName: "month_two_digits",
         formatSpecifier: "MM",
-        regexFunc: get_MM,
-        currentValue: null,
+        regexFunc: constructParseFunction('^[0-2][1-9]$', '^[1-9][3-9]$'),
+        type: "month"
+    },
+    {
+        sectionName: "month_one_or_two_digits",
+        formatSpecifier: "M",
+        regexFunc: constructParseFunction('^((1|)[0-9])$', '^[1][3-9]$'),
         type: "month"
     },
     {
         sectionName: "year_four_digits",
         formatSpecifier: "yyyy",
-        regexFunc: get_yyyy,
-        currentValue: null,
+        regexFunc: constructParseFunction('^[0-9]{4}$'),
+        type: "year"
+    },
+    {
+        sectionName: "year_two_digits",
+        formatSpecifier: "yy",
+        regexFunc: constructParseFunction('^[0-9][0-9]$'),
         type: "year"
     }
 ]
 
-let possibleSplits:{    splitName: string,
+const possibleSplits:{    splitName: string,
                         splitOn: string,
                         splitStringArray: Array<string>
                     }[] 
@@ -190,19 +173,19 @@ let testSamples = [
     {
         data: "6/12/2021",
         isValid: true,
-        result: ["m/d/2021", "m/dd/2021"]
+        result: ["M/d/2021", "M/dd/2021", "M/d/yyyy","M/dd/yyyy"]
 
     },
     {
         data: "06-06-2021",
         isValid: true,
-        result: ["dd-mm-yyyy", "mm-dd-yyyy"]
+        result: ["dd-MM-yyyy", "MM-dd-yyyy"]
 
     },
     {
         data: "06/12/98",
         isValid: true,
-        result: ["mm/dd/yy", "dd/mm/yy"]
+        result: ["MM/dd/yy", "dd/MM/yy", "dd/M/yy", "MM/d/yy"]
 
     },
     {
@@ -213,6 +196,8 @@ let testSamples = [
     }
 ]
 
+
+// console.log(parseDateString('6/12/2021'));
 for(let sample of testSamples){
     let result = parseDateString(sample.data);
 
