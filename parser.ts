@@ -1,68 +1,89 @@
-function constructParseFunction(inRegex: string, outRegex: string = null): Function{
-    if(outRegex){
-        return (dateElement: string): RegExpExecArray => {
-            var regexp = new RegExp(inRegex),
-                regexp2 = new RegExp(outRegex);
-
-            if(regexp.test(dateElement) && !regexp2.test(dateElement)){
-                return regexp.exec(dateElement);
-            }
-            return null;
-        };
-    }
-
-    return (dateElement: string): RegExpExecArray => {
-        var regexp = new RegExp(inRegex);
-
-        if(regexp.test(dateElement)){
-            return regexp.exec(dateElement);
-        }
-        return null;
-    };
+interface PossibleElement {
+    sectionName: string,
+    formatSpecifier: string,
+    regexFunc: Function
+    type: string
 }
 
+interface Grammar{
+    grammarName: string,
+    possibleElements: Array<PossibleElement>
+}
 
-const possibleSections:{  sectionName: string, 
-                        formatSpecifier: string, 
-                        regexFunc: Function,
-                        type: string }[] 
-= [
-    {
-        sectionName: "day_of_month",
-        formatSpecifier: "d",
-        regexFunc: constructParseFunction('^([1-3][0-9]|[1-9])$', '^(3[2-9])$'),
-        type: "day"
-    },
-    {
-        sectionName: "day_of_month_two_digits",
-        formatSpecifier: "dd",
-        regexFunc: constructParseFunction('^([0-3][0-9])$', '^([3-9][2-9])$'),
-        type: "day"
-    },
-    {
-        sectionName: "month_two_digits",
-        formatSpecifier: "MM",
-        regexFunc: constructParseFunction('^[0-2][1-9]$', '^[1-9][3-9]$'),
-        type: "month"
-    },
-    {
-        sectionName: "month_one_or_two_digits",
-        formatSpecifier: "M",
-        regexFunc: constructParseFunction('^((1|)[0-9])$', '^[1][3-9]$'),
-        type: "month"
-    },
-    {
-        sectionName: "year_four_digits",
-        formatSpecifier: "yyyy",
-        regexFunc: constructParseFunction('^[0-9]{4}$'),
-        type: "year"
-    },
-    {
-        sectionName: "year_two_digits",
-        formatSpecifier: "yy",
-        regexFunc: constructParseFunction('^[0-9][0-9]$'),
-        type: "year"
+const possibleGrammars:Array<Grammar> 
+= [ {
+        grammarName: "C#",
+        possibleElements: [
+            {
+                sectionName: "day_of_month",
+                formatSpecifier: "d",
+                regexFunc: constructParseFunction('^([1-3][0-9]|[1-9])$', '^(3[2-9])$'),
+                type: "day"
+            },
+            {
+                sectionName: "day_of_month_two_digits",
+                formatSpecifier: "dd",
+                regexFunc: constructParseFunction('^([0-3][0-9])$', '^([3-9][2-9])$'),
+                type: "day"
+            },
+            {
+                sectionName: "day_abvr",
+                formatSpecifier: "ddd",
+                regexFunc: constructParseFunction(/^(Sun|Mon|Tue|Wed|Thu|Fri|Sat)$/i),
+                type: "day"
+            },
+            {
+                sectionName: "day_full",
+                formatSpecifier: "dddd",
+                regexFunc: constructParseFunction(/^(Sunday|Monday|Tuesday|Wednesday|Thusday|Friday|Saturday)$/i),
+                type: "day"
+            },
+            {
+                sectionName: "month_one_or_two_digits",
+                formatSpecifier: "M",
+                regexFunc: constructParseFunction('^((1|)[0-9])$', '^[1][3-9]$'),
+                type: "month"
+            },
+            {
+                sectionName: "month_two_digits",
+                formatSpecifier: "MM",
+                regexFunc: constructParseFunction('^[0-2][1-9]$', '^[1-9][3-9]$'),
+                type: "month"
+            },
+            {
+                sectionName: "month_abvr",
+                formatSpecifier: "MMM",
+                regexFunc: constructParseFunction(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/i),
+                type: "month"
+            },
+            {
+                sectionName: "month_full",
+                formatSpecifier: "MMMM",
+                regexFunc: constructParseFunction(/^(January|February|March|April|May|June|July|August|September|Octover|November|Deccember)$/i),
+                type: "month"
+            },
+            {
+                sectionName: "year_one_or_two_digits",
+                formatSpecifier: "y",
+                regexFunc: constructParseFunction('^(0?[1-9]|[1-9][0-9])$'),
+                type: "year"
+            },
+            {
+                sectionName: "year_two_digits",
+                formatSpecifier: "yy",
+                regexFunc: constructParseFunction('^[0-9][0-9]$'),
+                type: "year"
+            },
+            {
+                sectionName: "year_four_digits",
+                formatSpecifier: "yyyy",
+                regexFunc: constructParseFunction('^[0-9]{4}$'),
+                type: "year"
+            }
+        ]
+
     }
+    
 ]
 
 const possibleSplits:{    splitName: string,
@@ -87,11 +108,34 @@ const possibleSplits:{    splitName: string,
     }
 ]
 
+function constructParseFunction(inRegex: string | RegExp, outRegex: string | RegExp = null): Function{
+    if(outRegex){
+        return (dateElement: string): RegExpExecArray => {
+            var regexp = new RegExp(inRegex),
+                regexp2 = new RegExp(outRegex);
+
+            if(regexp.test(dateElement) && !regexp2.test(dateElement)){
+                return regexp.exec(dateElement);
+            }
+            return null;
+        };
+    }
+
+    return (dateElement: string): RegExpExecArray => {
+        var regexp = new RegExp(inRegex);
+
+        if(regexp.test(dateElement)){
+            return regexp.exec(dateElement);
+        }
+        return null;
+    };
+}
+
 // Returns an array of possible character codes the given element string COULD represent
-function matchElement(element: string): Array<string>{
+function matchElement(element: string, possibleElements: Array<PossibleElement> ): Array<string>{
     var possibleMatches = new Array();
     
-    for(let possibleSection of possibleSections){
+    for(let possibleSection of possibleElements){
         var result = possibleSection.regexFunc(element)
         
         if(result){
@@ -102,6 +146,15 @@ function matchElement(element: string): Array<string>{
     return possibleMatches;
 }
 
+function findGrammar(grammarChoice: string ): Array<PossibleElement>{
+    for(let grammar of possibleGrammars){
+        if(grammar.grammarName == grammarChoice){
+            return grammar.possibleElements
+        }
+    }
+    return 
+}
+
 // Checks that there isn't a duplicate type - for example 'dd-dd-yyyy' is invalid
 function validMatch(matchElement: any): boolean{
     return matchElement.possibleMatch0.type != matchElement.possibleMatch1.type &&
@@ -109,7 +162,7 @@ function validMatch(matchElement: any): boolean{
             matchElement.possibleMatch1.type != matchElement.possibleMatch2.type;
 }   
 
-function parseDateString(dateString: string): Array<string> {
+function parseDateString(dateString: string, grammarChoice: string): Array<string> {
     // Step 1: split the string into groups
     for(let possibleSplit of possibleSplits){
         possibleSplit.splitStringArray = dateString.split(possibleSplit.splitOn);
@@ -121,11 +174,13 @@ function parseDateString(dateString: string): Array<string> {
 
     // Needs to be date nicly split into three sections
     if(dateElements.length != 3) return null;
+
+    let possibleElements = findGrammar(grammarChoice)
     
     let elementMatches = [];
     // Step 2: try to match the elements of the split into their closest match
     for(let element of dateElements){
-        let possibleMatches = matchElement(element);
+        let possibleMatches = matchElement(element, possibleElements);
 
         elementMatches.push({element, possibleMatches})
     }
@@ -150,8 +205,12 @@ function parseDateString(dateString: string): Array<string> {
     return possibleStringFormats;
 }
 
-// Testing suite
-let testSamples = [
+
+/*
+    Testing Suite
+
+*/
+const testSamples = [
     {
         data: "2021-2-1",
         isValid: true,
@@ -165,9 +224,9 @@ let testSamples = [
 
     },
     {
-        data: "July 31st, 2021",
+        data: "feb 28 0006",
         isValid: true,
-        result: ["MMM ddst, yyyy"]
+        result: ["MMM dd yyyy", "MMM d yyyy"]
 
     },
     {
@@ -185,7 +244,7 @@ let testSamples = [
     {
         data: "06/12/98",
         isValid: true,
-        result: ["MM/dd/yy", "dd/MM/yy", "dd/M/yy", "MM/d/yy"]
+        result: ["dd/M/y","dd/M/yy","dd/MM/y","dd/MM/yy","MM/d/y","MM/d/yy","MM/dd/y","MM/dd/yy"]
 
     },
     {
@@ -193,13 +252,31 @@ let testSamples = [
         isValid: true,
         result: ["M dd yyyy", "d MM yyyy"]
 
+    },
+    {
+        data: "march 1 98",
+        isValid: true,
+        result: ["MMMM d yy", "MMMM d y"]
+
+    },
+    {
+        data: "06 sunday 1998",
+        isValid: true,
+        result: ["dd dddd yyyy"]
+
+    },
+    {
+        data: "31 Fri 2",
+        isValid: true,
+        result: ["d mmm y","dd mmm y"]
+
     }
 ]
 
 
 // console.log(parseDateString('6/12/2021'));
 for(let sample of testSamples){
-    let result = parseDateString(sample.data);
+    let result = parseDateString(sample.data, "C#");
 
     if( result != null &&
         result.length === sample.result.length &&
