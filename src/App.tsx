@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { parseDateString } from './parser/parser';
+import { parseDateString } from './parser/Parser';
 
 function App() {
   let result = parseDateString("2021-2-1", "C#")
