@@ -23,69 +23,83 @@ const App: React.FC = () => {
         <Box
           sx={{
             display: 'flex',
-            bgcolor: 'red',
             justifyContent: 'center',
+            alignItems: 'center',
+            margin: 'auto',
+            textAlign: 'center',
+            minHeight: '100vh',
           }}
         >
           <Box
             sx={{
-              display: 'grid',
+              display: 'flex',
               justifyContent: 'center',
-              p: 1,
-              m: 1,
-              bgcolor: 'green',
-              alignContent: 'flex-start',
+              margin: 'auto',
             }}
           >
             <Box
+              id="data-box"
               sx={{
-                bgcolor: 'blue',
+                display: 'grid',
+                justifyContent: 'center',
+                alignContent: 'flex-start',
+                margin: '10px',
               }}
             >
-              <TextField onChange={onUserInput} id="outlined-basic" label={currentLanguage} variant="outlined" />
+              <Box
+                sx={{
+                }}
+              >
+                <TextField onChange={onUserInput} id="outlined-basic" label={currentLanguage} variant="filled" />
+              </Box>
+              <Box
+                sx={{
+                }}
+              >
+                <List dense={true}>
+                  {
+                    parsedOptions.map((option: string) => {
+                      return (<ListItem
+                        secondaryAction={
+                          <IconButton edge="end" aria-label="delete">
+                          </IconButton>
+                        }
+                      >
+                        <ListItemAvatar>
+                          <Avatar>
+                          </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText
+                          primary={option}
+                          secondary={true ? 'Secondary text' : null}
+                        />
+                      </ListItem>);
+                    })
+                  }
+                </List>
+              </Box>
             </Box>
             <Box
+              id="select-box"
               sx={{
-                bgcolor: 'purple',
+                margin: '10px',
               }}
             >
-              <List dense={true}>
-                {
-                  parsedOptions.map((option: string) => {
-                    return (<ListItem
-                      secondaryAction={
-                        <IconButton edge="end" aria-label="delete">
-                        </IconButton>
-                      }
-                    >
-                      <ListItemAvatar>
-                        <Avatar>
-                        </Avatar>
-                      </ListItemAvatar>
-                      <ListItemText
-                        primary={option}
-                        secondary={true ? 'Secondary text' : null}
-                      />
-                    </ListItem>);
-                  })
-                }
-              </List>
+              <FormControl variant="filled" sx={{ minWidth: 120 }}>
+                <InputLabel id="language-input-label">Language</InputLabel>
+                <Select
+                  labelId="select"
+                  id="select"
+                  value={currentLanguage}
+                  onChange={onLanguageSelect}
+                >
+                  <MenuItem value={"C#"}>C#</MenuItem>
+                  <MenuItem value={"Python"}>Python</MenuItem>
+                </Select>
+              </FormControl>
             </Box>
           </Box>
-          <Box>
-            <FormControl variant="filled" sx={{ m: 1, minWidth: 120 }}>
-              <InputLabel id="language-input-label">Language</InputLabel>
-              <Select
-                labelId="select"
-                id="select"
-                value={currentLanguage}
-                onChange={onLanguageSelect}
-              >
-                <MenuItem value={"C#"}>C#</MenuItem>
-                <MenuItem value={"Python"}>Python</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
+
         </Box>
       </div>
     </div>
