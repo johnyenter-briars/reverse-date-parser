@@ -4,6 +4,13 @@ import './App.css';
 import { parseDateString } from './parser/Parser';
 import { Avatar, FormControl, IconButton, InputLabel, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, MenuItem, Select, TextField } from '@mui/material';
 import { Box } from '@mui/system';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import MenuIcon from '@mui/icons-material/Menu';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 const App: React.FC = () => {
   const [parsedOptions, setParsedOptions] = React.useState(parseDateString("2021-12-01", "C#"));
@@ -20,6 +27,22 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div style={{ width: '100%' }}>
+        <AppBar position="static" sx={{ background: 'yellow', color: 'black' }}>
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="back"
+              sx={{ mr: 2 }}
+            >
+              <ArrowBackIcon href="\" />
+            </IconButton>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+              UNDER CONSTRUCTION
+            </Typography>
+          </Toolbar>
+        </AppBar>
         <Box
           sx={{
             display: 'flex',
