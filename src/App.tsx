@@ -35,8 +35,11 @@ const App: React.FC = () => {
               color="inherit"
               aria-label="back"
               sx={{ mr: 2 }}
+              onClick={() => {
+                window.location.href = '/';
+              }}
             >
-              <ArrowBackIcon href="\" />
+              <ArrowBackIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               UNDER CONSTRUCTION
