@@ -32,7 +32,7 @@ const testSamples = [
   {
     data: "6/12/2021",
     isValid: true,
-    result: ["M/d/2021", "M/dd/2021", "M/d/yyyy", "M/dd/yyyy"]
+    result: ["M/d/yyyy", "M/dd/yyyy", "d/MM/yyyy", "d/M/yyyy"]
 
   },
   {
@@ -62,13 +62,13 @@ const testSamples = [
   {
     data: "06 sunday 1998",
     isValid: true,
-    result: ["dd dddd yyyy"]
+    result: ["MM dddd yyyy"]
 
   },
   {
     data: "31 Fri 2",
-    isValid: true,
-    result: ["d mmm y", "dd mmm y"]
+    isValid: false,
+    result: ["y ddd M", "yy ddd M"]
 
   },
   {
