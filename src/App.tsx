@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { parseDateString } from './parser/Parser';
 import { Avatar, FormControl, IconButton, InputLabel, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, MenuItem, Select, TextField } from '@mui/material';
@@ -92,8 +91,7 @@ const App: React.FC = () => {
                         }
                       >
                         <ListItemAvatar>
-                          <Avatar>
-                          </Avatar>
+                          <Avatar />
                         </ListItemAvatar>
                         <ListItemText
                           primary={option}
