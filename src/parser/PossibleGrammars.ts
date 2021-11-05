@@ -1,12 +1,12 @@
 import { Grammar } from "./Grammer"
 
-function constructParseFunction(inRegex: string | RegExp, outRegex: string | RegExp | null = null): Function{
-    if(outRegex){
+function constructParseFunction(inRegex: string | RegExp, outRegex: string | RegExp | null = null): Function {
+    if (outRegex) {
         return (dateElement: string): RegExpExecArray | null => {
             var regexp = new RegExp(inRegex),
                 regexp2 = new RegExp(outRegex);
 
-            if(regexp.test(dateElement) && !regexp2.test(dateElement)){
+            if (regexp.test(dateElement) && !regexp2.test(dateElement)) {
                 return regexp.exec(dateElement);
             }
             return null;
@@ -16,15 +16,15 @@ function constructParseFunction(inRegex: string | RegExp, outRegex: string | Reg
     return (dateElement: string): RegExpExecArray | null => {
         var regexp = new RegExp(inRegex);
 
-        if(regexp.test(dateElement)){
+        if (regexp.test(dateElement)) {
             return regexp.exec(dateElement);
         }
         return null;
     };
 }
 
-export const PossibleGrammars:Array<Grammar> 
-= [ {
+export const PossibleGrammars: Array<Grammar>
+    = [{
         grammarName: "C#",
         possibleElements: [
             {
@@ -96,5 +96,5 @@ export const PossibleGrammars:Array<Grammar>
         ]
 
     }
-    
-]
+
+    ]
