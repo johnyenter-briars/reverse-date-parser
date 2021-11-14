@@ -1,5 +1,5 @@
 import { PossibleElement } from "./PossibleElement";
-import { Grammar } from "./Grammer";
+import { Grammar } from "./Grammar";
 import { string } from "yargs";
 import { Split } from "./Split";
 import { MatchElement } from "./MatchElement";
@@ -46,7 +46,7 @@ function findGrammar(grammarChoice: string): Array<PossibleElement> {
             return grammar.possibleElements
         }
     }
-    throw new Error("Can't find the appropiate grammer for that choice!");
+    throw new Error("Can't find the appropiate grammar for that choice!");
 }
 
 // Checks that there isn't a duplicate type - for example 'dd-dd-yyyy' is invalid
@@ -104,91 +104,3 @@ export function parseDateString(dateString: string, languageChoice: string): str
 
     return possibleStringFormats;
 }
-
-
-/*
-    Testing Suite
-*/
-const testSamples = [
-    {
-        data: "2021-2-1",
-        isValid: true,
-        result: ["yyyy-M-d", "yyyy-d-M"]
-
-    },
-    {
-        data: "2021-02-01",
-        isValid: true,
-        result: ["yyyy-MM-dd", "yyyy-dd-MM"]
-
-    },
-    {
-        data: "feb 28 0006",
-        isValid: true,
-        result: ["MMM dd yyyy", "MMM d yyyy"]
-
-    },
-    {
-        data: "6/12/2021",
-        isValid: true,
-        result: ["M/d/2021", "M/dd/2021", "M/d/yyyy", "M/dd/yyyy"]
-
-    },
-    {
-        data: "06-06-2021",
-        isValid: true,
-        result: ["dd-MM-yyyy", "MM-dd-yyyy"]
-
-    },
-    {
-        data: "06/12/98",
-        isValid: true,
-        result: ["dd/M/y", "dd/M/yy", "dd/MM/y", "dd/MM/yy", "MM/d/y", "MM/d/yy", "MM/dd/y", "MM/dd/yy"]
-
-    },
-    {
-        data: "6 01 1998",
-        isValid: true,
-        result: ["M dd yyyy", "d MM yyyy"]
-
-    },
-    {
-        data: "march 1 98",
-        isValid: true,
-        result: ["MMMM d yy", "MMMM d y"]
-
-    },
-    {
-        data: "06 sunday 1998",
-        isValid: true,
-        result: ["dd dddd yyyy"]
-
-    },
-    {
-        data: "31 Fri 2",
-        isValid: true,
-        result: ["d mmm y", "dd mmm y"]
-
-    },
-    {
-        data: "this is a test",
-        isValid: false,
-        result: []
-
-    }
-]
-
-
-// console.log(parseDateString('6/12/2021'));
-// for (let sample of testSamples) {
-//     let result = parseDateString(sample.data, "C#");
-
-//     if (result.length === sample.result.length &&
-//         result.every((str) => result?.includes(str))) {
-//         console.log(`Pass for ${sample.data}`);
-//     }
-//     else {
-//         console.log(`Fail for ${sample.data}`);
-//         console.log(`${result} does not match ${sample.result}`);
-//     }
-// }
