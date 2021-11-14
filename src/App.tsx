@@ -6,8 +6,6 @@ import { Box } from '@mui/system';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import MenuIcon from '@mui/icons-material/Menu';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
@@ -16,7 +14,7 @@ const App: React.FC = () => {
   const [currentLanguage, setCurrentLangugae] = React.useState("C#");
 
   const onUserInput = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
-    setParsedOptions(parseDateString(event.target.value, "C#"));
+    setParsedOptions(parseDateString(event.target.value, currentLanguage));
   }
 
   const onLanguageSelect = (event: { target: { value: React.SetStateAction<string>; }; }): void => {
