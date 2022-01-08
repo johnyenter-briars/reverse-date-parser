@@ -10,7 +10,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
 const App: React.FC = () => {
-  const [parsedOptions, setParsedOptions] = React.useState(parseDateString("2021-12-01", "C#"));
+  const [parsedOptions, setParsedOptions] = React.useState<string[]>([]);
   const [currentLanguage, setCurrentLangugae] = React.useState("C#");
 
   const onUserInput = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
@@ -24,7 +24,10 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div style={{ width: '100%' }}>
-        <AppBar position="static" sx={{ background: 'yellow', color: 'black' }}>
+        <AppBar position="static" sx={{
+          background: 'yellow',
+          color: 'black',
+        }}>
           <Toolbar>
             <IconButton
               size="large"
@@ -51,77 +54,118 @@ const App: React.FC = () => {
             margin: 'auto',
             textAlign: 'center',
             minHeight: '100vh',
+            background: 'orange',
           }}
         >
           <Box
             sx={{
-              display: 'flex',
+              display: 'flex-box',
               justifyContent: 'center',
               margin: 'auto',
+              background: 'yellow',
             }}
           >
             <Box
-              id="data-box"
               sx={{
-                display: 'grid',
+                display: 'flex',
                 justifyContent: 'center',
-                alignContent: 'flex-start',
-                margin: '10px',
-              }}
-            >
-              <Box
-                sx={{
-                }}
-              >
-                <TextField onChange={onUserInput} id="outlined-basic" label={currentLanguage} variant="filled" />
-              </Box>
-              <Box
-                sx={{
-                }}
-              >
-                <List dense={true}>
-                  {
-                    parsedOptions.map((option: string) => {
-                      return (<ListItem
-                        secondaryAction={
-                          <IconButton edge="end" aria-label="delete">
-                          </IconButton>
-                        }
-                      >
-                        <ListItemAvatar>
-                          <Avatar />
-                        </ListItemAvatar>
-                        <ListItemText
-                          primary={option}
-                          secondary={true ? 'Secondary text' : null}
-                        />
-                      </ListItem>);
-                    })
-                  }
-                </List>
-              </Box>
-            </Box>
-            <Box
-              id="select-box"
-              sx={{
-                margin: '10px',
-              }}
-            >
-              <FormControl variant="filled" sx={{ minWidth: 120 }}>
-                <InputLabel id="language-input-label">Language</InputLabel>
-                <Select
-                  labelId="select"
-                  id="select"
-                  value={currentLanguage}
-                  onChange={onLanguageSelect}
-                >
-                  <MenuItem value={"C#"}>C#</MenuItem>
-                  <MenuItem value={"Python"}>Python</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-          </Box>
+                // margin: '40px',
+                background: 'green',
+                // border: '10px solid black',
+                // borderRadius: '500px',
+                // padding: '20px',
 
+              }}
+            >
+              <Typography
+                variant='h1'
+              >
+                Reverse Date Parser
+              </Typography>
+              <br />
+            </Box>
+            <Typography
+              variant='body1'
+            >
+              Enter a date string into the box below, and see the possible format strings that would parse to it!
+            </Typography>
+            <Typography
+              variant='body1'
+            >
+              Change the language on the right side. 
+            </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'center',
+                margin: 'auto',
+                background: 'blue',
+              }}
+            >
+              <Box
+                id="data-box"
+                sx={{
+                  display: 'grid',
+                  justifyContent: 'center',
+                  alignContent: 'flex-start',
+                  margin: '10px',
+                  background: 'red',
+                }}
+              >
+                <Box
+                  sx={{
+                  }}
+                >
+                  <TextField onChange={onUserInput} id="outlined-basic" label={currentLanguage} variant="filled" />
+                </Box>
+                <Box
+                  sx={{
+                  }}
+                >
+                  <List dense={true}>
+                    {
+                      parsedOptions.map((option: string) => {
+                        return (<ListItem
+                          secondaryAction={
+                            <IconButton edge="end" aria-label="delete">
+                            </IconButton>
+                          }
+                        >
+                          <ListItemAvatar>
+                            <Avatar />
+                          </ListItemAvatar>
+                          <ListItemText
+                            primary={option}
+                            secondary={true ? 'Secondary text' : null}
+                          />
+                        </ListItem>);
+                      })
+                    }
+                  </List>
+                </Box>
+              </Box>
+              <Box
+                id="select-box"
+                sx={{
+                  margin: '10px',
+                }}
+              >
+                <FormControl variant="filled" sx={{ minWidth: 120 }}>
+                  <InputLabel id="language-input-label">Language</InputLabel>
+                  <Select
+                    labelId="select"
+                    id="select"
+                    value={currentLanguage}
+                    onChange={onLanguageSelect}
+                  >
+                    <MenuItem value={"C#"}>C#</MenuItem>
+                    <MenuItem value={"Python"}>Python</MenuItem>
+                  </Select>
+                </FormControl>
+              </Box>
+            </Box>
+
+          </Box>
         </Box>
       </div>
     </div>
