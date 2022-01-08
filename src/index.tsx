@@ -9,6 +9,7 @@ const theme = createTheme({
   typography: {
     h1: {
       fontFamily: '"Courier New", Courier, monospace',
+      fontSize: '50px'
     }
   }
 })
