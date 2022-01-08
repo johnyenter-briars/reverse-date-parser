@@ -69,11 +69,11 @@ const App: React.FC = () => {
               sx={{
                 display: 'flex',
                 justifyContent: 'center',
-                margin: '40px',
+                // margin: '40px',
                 background: 'green',
-                border: '10px solid black',
-                borderRadius: '500px',
-                padding: '20px',
+                // border: '10px solid black',
+                // borderRadius: '500px',
+                // padding: '20px',
 
               }}
             >
@@ -87,7 +87,12 @@ const App: React.FC = () => {
             <Typography
               variant='body1'
             >
-              Enter a date string into the box below
+              Enter a date string into the box below, and see the possible format strings that would parse to it!
+            </Typography>
+            <Typography
+              variant='body1'
+            >
+              Change the language on the right side. 
             </Typography>
             <Box
               sx={{
