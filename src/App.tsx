@@ -24,7 +24,10 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div style={{ width: '100%' }}>
-        <AppBar position="static" sx={{ background: 'yellow', color: 'black' }}>
+        <AppBar position="static" sx={{
+          background: 'yellow',
+          color: 'black',
+        }}>
           <Toolbar>
             <IconButton
               size="large"
