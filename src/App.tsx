@@ -11,14 +11,18 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 const App: React.FC = () => {
   const [parsedOptions, setParsedOptions] = React.useState<string[]>([]);
-  const [currentLanguage, setCurrentLangugae] = React.useState("C#");
+  const [currentLanguage, setCurrentLanguage] = React.useState("C#");
+  const [currentString, setCurrentString] = React.useState("");
 
   const onUserInput = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
-    setParsedOptions(parseDateString(event.target.value, currentLanguage));
+    setCurrentString(event.target.value);
+    setParsedOptions(parseDateString(currentString, currentLanguage));
   }
 
   const onLanguageSelect = (event: { target: { value: React.SetStateAction<string>; }; }): void => {
-    setCurrentLangugae(event.target.value);
+    var language = event.target.value.toString();
+    setCurrentLanguage(language);
+    setParsedOptions(parseDateString(currentString, language));
   }
 
   return (
@@ -92,7 +96,7 @@ const App: React.FC = () => {
             <Typography
               variant='body1'
             >
-              Change the language on the right side. 
+              Change the language on the right side.
             </Typography>
             <Box
               sx={{
