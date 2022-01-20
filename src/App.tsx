@@ -115,7 +115,7 @@ const App: React.FC = () => {
                         <Typography
                             variant='body1'
                             sx={{
-                                marginBottom: '200px'
+                                marginBottom: '300px'
                             }}
                         >
                             Change the language on the right side.
