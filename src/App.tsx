@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { parseDateString } from './parser/Parser';
 import { Avatar, Button, FormControl, IconButton, InputLabel, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, MenuItem, Select, TextField } from '@mui/material';
@@ -8,18 +8,34 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import CopyToClipboard from './CopytoClipboard';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { ContentCopyTwoTone } from '@mui/icons-material';
-import ResultsList from './ResultsList';
+import ResultsList from './components/ResultsList';
 
+const defaultOptions = [
+    ["2021-02-0", "C#"],
+    // ["2019-12-24", "C#"],
+];
+
+var dirty = false;
 
 const App: React.FC = () => {
-    const [parsedOptions, setParsedOptions] = React.useState<string[]>([]);
-    const [currentLanguage, setCurrentLanguage] = React.useState("C#");
+    const [currentLanguage, setCurrentLanguage] = React.useState("");
     const [currentString, setCurrentString] = React.useState("");
+    const [parsedOptions, setParsedOptions] = React.useState<string[]>([]);
+
+    useEffect(() => {
+        let randomOption = defaultOptions[Math.floor(Math.random() * defaultOptions.length)]
+        let randomString = randomOption[0];
+        let randomLanguage = randomOption[1];
+
+        setCurrentLanguage(randomLanguage);
+        setCurrentString(randomString);
+        setParsedOptions(parseDateString(randomString, randomLanguage));
+    }, [])
 
     const onUserInput = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
+        let currentString = event.target.value;
+        let options = parseDateString(currentString, currentLanguage);
         setCurrentString(event.target.value);
         setParsedOptions(parseDateString(currentString, currentLanguage));
     }
@@ -142,7 +158,12 @@ const App: React.FC = () => {
                                     sx={{
                                     }}
                                 >
-                                    <TextField onChange={onUserInput} id="outlined-basic" label={currentLanguage} variant="filled" />
+                                    <TextField
+                                        value={currentString}
+                                        onChange={onUserInput}
+                                        id="outlined-basic"
+                                        label={currentLanguage}
+                                        variant="filled" />
                                 </Box>
                                 <ResultsList
                                     options={parsedOptions}
