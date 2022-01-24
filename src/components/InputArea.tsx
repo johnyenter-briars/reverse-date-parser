@@ -13,8 +13,6 @@ interface IInputAreaProps {
 const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
 
     return (
-
-
         <Box
             sx={{
                 display: 'flex',
