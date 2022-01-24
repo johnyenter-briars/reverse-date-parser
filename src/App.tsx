@@ -13,10 +13,9 @@ import ResultsList from './components/ResultsList';
 
 const defaultOptions = [
     ["2021-02-0", "C#"],
-    // ["2019-12-24", "C#"],
+    ["2019-12-24", "Python"],
+    ["Feb 21 2021", "Python"],
 ];
-
-var dirty = false;
 
 const App: React.FC = () => {
     const [currentLanguage, setCurrentLanguage] = React.useState("");
