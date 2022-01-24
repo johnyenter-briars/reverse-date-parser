@@ -30,6 +30,9 @@ function matchElement(element: string, possibleElements: Array<PossibleElement>)
     var possibleMatches = new Array<PossibleElement>();
 
     for (let possibleSection of possibleElements) {
+        if (possibleSection.formatSpecifier === 'M' && element === '0') {
+            let idk = 10;
+        }
         var result = possibleSection.regexFunc(element)
 
         if (result) {

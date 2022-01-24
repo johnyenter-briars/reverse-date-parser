@@ -6,6 +6,9 @@ function constructParseFunction(inRegex: string | RegExp, outRegex: string | Reg
             var regexp = new RegExp(inRegex),
                 regexp2 = new RegExp(outRegex);
 
+            let foo1 = regexp.test(dateElement);
+            let foo2 = regexp2.test(dateElement);
+
             if (regexp.test(dateElement) && !regexp2.test(dateElement)) {
                 return regexp.exec(dateElement);
             }
