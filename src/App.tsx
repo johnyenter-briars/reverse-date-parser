@@ -24,12 +24,10 @@ const App: React.FC = () => {
 
     useEffect(() => {
         let randomOption = defaultOptions[Math.floor(Math.random() * defaultOptions.length)]
-        let randomString = randomOption[0];
-        let randomLanguage = randomOption[1];
 
-        setCurrentLanguage(randomLanguage);
-        setCurrentString(randomString);
-        setParsedOptions(parseDateString(randomString, randomLanguage));
+        setCurrentLanguage(randomOption[1]);
+        setCurrentString(randomOption[0]);
+        setParsedOptions(parseDateString(currentString, currentLanguage));
     }, [])
 
     const onUserInput = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
