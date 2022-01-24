@@ -10,6 +10,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { ContentCopyTwoTone } from '@mui/icons-material';
 import ResultsList from './components/ResultsList';
+import InputArea from './components/InputArea';
 
 const defaultOptions = [
     ["2021-02-0", "C#"],
@@ -133,59 +134,15 @@ const App: React.FC = () => {
                         >
                             Change the language on the right side.
                         </Typography>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                margin: 'auto',
-                                background: 'blue',
-                            }}
-                        >
-                            <Box
-                                id="data-box"
-                                sx={{
-                                    display: 'grid',
-                                    justifyContent: 'center',
-                                    alignContent: 'flex-start',
-                                    margin: '10px',
-                                    background: 'red',
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                    }}
-                                >
-                                    <TextField
-                                        value={currentString}
-                                        onChange={onUserInput}
-                                        id="outlined-basic"
-                                        label={currentLanguage}
-                                        variant="filled" />
-                                </Box>
-                                <ResultsList
-                                    options={parsedOptions}
-                                />
-                            </Box>
-                            <Box
-                                id="select-box"
-                                sx={{
-                                    margin: '10px',
-                                }}
-                            >
-                                <FormControl variant="filled" sx={{ minWidth: 120 }}>
-                                    <InputLabel id="language-input-label">Language</InputLabel>
-                                    <Select
-                                        labelId="select"
-                                        id="select"
-                                        value={currentLanguage}
-                                        onChange={onLanguageSelect}
-                                    >
-                                        <MenuItem value={"C#"}>C#</MenuItem>
-                                        <MenuItem value={"Python"}>Python</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                        </Box>
+
+                        <InputArea 
+                            currentLanguage={currentLanguage}
+                            currentString={currentString}
+                            parsedOptions={parsedOptions}
+                            onUserInput={onUserInput}
+                            onLanguageSelect={onLanguageSelect}
+                        />
+
 
                     </Box>
                 </Box>
