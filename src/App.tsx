@@ -1,15 +1,10 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import { parseDateString } from './parser/Parser';
-import { Avatar, Button, FormControl, IconButton, InputLabel, List, ListItem, ListItemAvatar, ListItemButton, ListItemText, MenuItem, Select, TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { ContentCopyTwoTone } from '@mui/icons-material';
-import ResultsList from './components/ResultsList';
+import InputArea from './components/InputArea';
+import NavBar from './components/NavBar';
 
 const defaultOptions = [
     ["2021-02-0", "C#"],
@@ -46,40 +41,7 @@ const App: React.FC = () => {
     return (
         <div className="App">
             <div style={{ width: '100%' }}>
-                <AppBar position="static" sx={{
-                    background: 'yellow',
-                    color: 'black',
-                }}>
-                    <Toolbar>
-                        <IconButton
-                            size="large"
-                            edge="start"
-                            color="inherit"
-                            aria-label="back"
-                            sx={{ mr: 2 }}
-                            onClick={() => {
-                                window.location.href = '/';
-                            }}
-                        >
-                            <ArrowBackIcon />
-                        </IconButton>
-                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            UNDER CONSTRUCTION
-                        </Typography>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            color="inherit"
-                            aria-label="back"
-                            sx={{ mr: 2 }}
-                            onClick={() => {
-                                window.location.href = 'https://github.com/johnyenter-briars/reverse-date-parser';
-                            }}
-                        >
-                            <GitHubIcon />
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
+                <NavBar />
                 <Box
                     sx={{
                         display: 'flex',
@@ -133,60 +95,13 @@ const App: React.FC = () => {
                         >
                             Change the language on the right side.
                         </Typography>
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                margin: 'auto',
-                                background: 'blue',
-                            }}
-                        >
-                            <Box
-                                id="data-box"
-                                sx={{
-                                    display: 'grid',
-                                    justifyContent: 'center',
-                                    alignContent: 'flex-start',
-                                    margin: '10px',
-                                    background: 'red',
-                                }}
-                            >
-                                <Box
-                                    sx={{
-                                    }}
-                                >
-                                    <TextField
-                                        value={currentString}
-                                        onChange={onUserInput}
-                                        id="outlined-basic"
-                                        label={currentLanguage}
-                                        variant="filled" />
-                                </Box>
-                                <ResultsList
-                                    options={parsedOptions}
-                                />
-                            </Box>
-                            <Box
-                                id="select-box"
-                                sx={{
-                                    margin: '10px',
-                                }}
-                            >
-                                <FormControl variant="filled" sx={{ minWidth: 120 }}>
-                                    <InputLabel id="language-input-label">Language</InputLabel>
-                                    <Select
-                                        labelId="select"
-                                        id="select"
-                                        value={currentLanguage}
-                                        onChange={onLanguageSelect}
-                                    >
-                                        <MenuItem value={"C#"}>C#</MenuItem>
-                                        <MenuItem value={"Python"}>Python</MenuItem>
-                                    </Select>
-                                </FormControl>
-                            </Box>
-                        </Box>
-
+                        <InputArea
+                            currentLanguage={currentLanguage}
+                            currentString={currentString}
+                            parsedOptions={parsedOptions}
+                            onUserInput={onUserInput}
+                            onLanguageSelect={onLanguageSelect}
+                        />
                     </Box>
                 </Box>
             </div>
