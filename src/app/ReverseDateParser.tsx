@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import './App.css';
-import { parseDateString } from './parser/Parser';
+import '../theme/App.css';
+import { parseDateString } from '../parser/Parser';
 import { Box } from '@mui/system';
 import Typography from '@mui/material/Typography';
-import InputArea from './components/InputArea';
-import NavBar from './components/NavBar';
+import InputArea from '../components/InputArea';
+import NavBar from '../components/NavBar';
+import { Button } from '@mui/material';
 
 const defaultOptions = [
     ["2021-02-0", "C#"],
@@ -12,7 +13,7 @@ const defaultOptions = [
     ["Feb 21 2021", "Python"],
 ];
 
-const App: React.FC = () => {
+const ReverseDateParser: React.FC = () => {
     const [currentLanguage, setCurrentLanguage] = React.useState("");
     const [currentString, setCurrentString] = React.useState("");
     const [parsedOptions, setParsedOptions] = React.useState<string[]>([]);
@@ -43,6 +44,7 @@ const App: React.FC = () => {
             <div style={{ width: '100%' }}>
                 <NavBar />
                 <Box
+                    color="secondary"
                     sx={{
                         display: 'flex',
                         justifyContent: 'center',
@@ -50,7 +52,8 @@ const App: React.FC = () => {
                         margin: 'auto',
                         textAlign: 'center',
                         minHeight: '100vh',
-                        background: 'orange',
+                        // background: 'orange',
+                        // bgcolor: 'primary.main',
                     }}
                 >
                     <Box
@@ -58,7 +61,7 @@ const App: React.FC = () => {
                             display: 'flex-box',
                             justifyContent: 'center',
                             margin: 'auto',
-                            background: 'yellow',
+                            // background: 'yellow',
                         }}
                     >
                         <Box
@@ -66,13 +69,16 @@ const App: React.FC = () => {
                                 display: 'flex',
                                 justifyContent: 'center',
                                 // margin: '40px',
-                                background: 'green',
+                                // background: 'green',
                                 // border: '10px solid black',
                                 // borderRadius: '500px',
                                 // padding: '20px',
 
                             }}
                         >
+
+                            <Button>Primary</Button>
+                            <Button color="secondary">Secondary</Button>
                             <Typography
                                 variant='h1'
                                 sx={{
@@ -109,4 +115,4 @@ const App: React.FC = () => {
     );
 }
 
-export default App;
+export default ReverseDateParser;
