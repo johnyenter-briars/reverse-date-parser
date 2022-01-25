@@ -18,7 +18,7 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 margin: 'auto',
-                background: 'blue',
+                // background: 'blue',
             }}
         >
             <Box
@@ -28,7 +28,7 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     justifyContent: 'center',
                     alignContent: 'flex-start',
                     margin: '10px',
-                    background: 'red',
+                    // background: 'red',
                 }}
             >
                 <Box
@@ -36,6 +36,7 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     }}
                 >
                     <TextField
+                        color="secondary"
                         value={props.currentString}
                         onChange={props.onUserInput}
                         id="outlined-basic"

@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import { parseDateString } from './parser/Parser';
-import App from './App';
+import { parseDateString } from '../parser/Parser';
 
 //TODO - fix this
 // test('renders learn react link', () => {
