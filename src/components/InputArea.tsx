@@ -18,6 +18,8 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                 display: 'flex',
                 justifyContent: 'center',
                 margin: 'auto',
+                borderRadius: '25px',
+                border: '2px solid #73AD21',
                 // background: 'blue',
             }}
         >
@@ -76,6 +78,9 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                         id="select"
                         value={props.currentLanguage}
                         onChange={props.onLanguageSelect}
+                        sx={{
+                            color: 'secondary.light',
+                        }}
                     >
                         <MenuItem value={"C#"}>C#</MenuItem>
                         <MenuItem value={"Python"}>Python</MenuItem>
