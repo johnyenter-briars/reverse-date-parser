@@ -53,7 +53,7 @@ const ReverseDateParser: React.FC = () => {
                         textAlign: 'center',
                         minHeight: '100vh',
                         // background: 'orange',
-                        // bgcolor: 'primary.main',
+                        bgcolor: 'secondary.dark',
                     }}
                 >
                     <Box
@@ -77,12 +77,11 @@ const ReverseDateParser: React.FC = () => {
                             }}
                         >
 
-                            <Button>Primary</Button>
-                            <Button color="secondary">Secondary</Button>
                             <Typography
                                 variant='h1'
                                 sx={{
-                                    marginBottom: '200px'
+                                    marginBottom: '1em',
+                                    color: 'secondary.light',
                                 }}
                             >
                                 Reverse Date Parser
@@ -90,13 +89,17 @@ const ReverseDateParser: React.FC = () => {
                         </Box>
                         <Typography
                             variant='body1'
+                            sx={{
+                                color: 'secondary.light',
+                            }}
                         >
                             Enter a date string into the box below, and see the possible format strings that would parse to it!
                         </Typography>
                         <Typography
                             variant='body1'
                             sx={{
-                                marginBottom: '300px'
+                                marginBottom: '2em',
+                                color: 'secondary.light',
                             }}
                         >
                             Change the language on the right side.
