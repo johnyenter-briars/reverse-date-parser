@@ -36,12 +36,28 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     }}
                 >
                     <TextField
-                        color="secondary"
+                        // color="secondary"
                         value={props.currentString}
                         onChange={props.onUserInput}
                         id="outlined-basic"
                         label={props.currentLanguage}
-                        variant="filled" />
+                        variant="filled"
+                        sx={{
+                            // color: 'red'
+                            textField: {
+                                width: '90%',
+                                marginLeft: 'auto',
+                                marginRight: 'auto',
+                                paddingBottom: 0,
+                                marginTop: 0,
+                                fontWeight: 500
+                            },
+                            input: {
+                                color: 'secondary.light'
+                            }
+
+                        }}
+                    />
                 </Box>
                 <ResultsList
                     options={props.parsedOptions}
