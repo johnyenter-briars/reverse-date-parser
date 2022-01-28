@@ -7,8 +7,8 @@ const NavBar: React.FC = () => {
 
     return (
         <AppBar position="static" sx={{
-            background: 'yellow',
-            color: 'black',
+            // background: 'yellow',
+            // color: 'black',
         }}>
             <Toolbar>
                 <IconButton
