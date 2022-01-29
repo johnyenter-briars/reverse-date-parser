@@ -47,8 +47,8 @@ The objective is to remove the time it takes for a developer to search a particu
 
 ## Built With
 
-- [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [React](https://reactjs.org/)
 
 ## License
 
@@ -62,9 +62,9 @@ Project Link: [https://github.com/johnyenter-briars/reverse-date-parser](https:/
 
 ## Acknowledgements
 
-This app took great inspiration from [Crontab Guru](https://crontab.guru) which is a totally awesome site that you should totally checkout. 
+This app took great inspiration from [Crontab Guru](https://crontab.guru) which is an awesome site that you should totally checkout. 
  
 
 ## Contributing
 
-Any contributions are welcome. I am not the best React programmer, nor am I any good at design, so I'm sure there's a great deal that could be improved.
+Any contributions are welcome. I am not the best at programming using React, nor am I any good at design, so I'm sure there's a great deal that could be improved.
