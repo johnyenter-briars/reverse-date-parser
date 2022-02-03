@@ -1,38 +1,14 @@
 import { PossibleElement } from "./PossibleElement";
-import { Grammar } from "./Grammar";
-import { string } from "yargs";
-import { Split } from "./Split";
 import { MatchElement } from "./MatchElement";
 import { PossibleGrammars } from "./PossibleGrammars";
+import { PossibleSplits } from "./PossibleSplits";
 
-
-const possibleSplits: Split[]
-    = [
-        {
-            splitName: "dash",
-            splitOn: "-",
-            splitStringArray: null
-        },
-        {
-            splitName: "foward_slash",
-            splitOn: "/",
-            splitStringArray: null
-        },
-        {
-            splitName: "space",
-            splitOn: " ",
-            splitStringArray: null
-        }
-    ]
 
 // Returns an array of possible character codes the given element string COULD represent
 function matchElement(element: string, possibleElements: Array<PossibleElement>): Array<PossibleElement> {
     var possibleMatches = new Array<PossibleElement>();
 
     for (let possibleSection of possibleElements) {
-        if (possibleSection.formatSpecifier === 'M' && element === '0') {
-            let idk = 10;
-        }
         var result = possibleSection.regexFunc(element)
 
         if (result) {
@@ -61,11 +37,11 @@ function validMatch(matchElement: MatchElement): boolean {
 
 export function parseDateString(dateString: string, languageChoice: string): string[] {
     // Step 1: split the string into groups
-    for (let possibleSplit of possibleSplits) {
+    for (let possibleSplit of PossibleSplits) {
         possibleSplit.splitStringArray = dateString.split(possibleSplit.splitOn);
     }
 
-    let finalSplit = possibleSplits.find((obj) => obj.splitStringArray?.length === 3);
+    let finalSplit = PossibleSplits.find((obj) => obj.splitStringArray?.length === 3);
 
     if (finalSplit === undefined) return new Array<string>();
 
