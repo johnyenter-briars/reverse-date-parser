@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import CopyToClipboard from './CopytoClipboard';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+// import IconButton from '@mui/material/IconButton';
 
 
 interface IResultsListProps {
@@ -20,17 +21,30 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
                 {
                     props.options.map((option: string) => {
                         return (
-                            <ListItem>
+                            <ListItem
+                                sx={{
+                                    width: 'auto',
+                                }}
+                                divider={true}
+                            >
                                 <ListItemText
                                     primary={option}
                                 />
                                 <CopyToClipboard>
                                     {({ copy }) => (
-                                        <ContentCopyIcon
+                                        // <ContentCopyIcon
+                                        //     // variant="contained"
+                                        //     // color="primary"
+                                        //     onClick={() => copy(option)}
+                                        // />
+                                        <IconButton
                                             // variant="contained"
                                             // color="primary"
                                             onClick={() => copy(option)}
-                                        />
+                                        >
+                                            <ContentCopyIcon />
+                                        </IconButton>
+                                        
                                     )}
                                 </CopyToClipboard>
                             </ListItem>
