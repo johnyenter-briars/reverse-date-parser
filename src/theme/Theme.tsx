@@ -20,6 +20,7 @@ const RdpTheme = createTheme({
         secondary: {
             light: '#BF55EC',
             dark: '#37505c',
+            // dark: '#FFFFFF',
             main: '#0044ff',
             contrastText: '#ffcc00',
         },
