@@ -7,8 +7,8 @@ import InputArea from '../components/InputArea';
 import NavBar from '../components/NavBar';
 import { Button } from '@mui/material';
 
-const defaultOptions = [
-    ["2021-02-0", "C#"],
+const defaultStringOptions = [
+    ["12/03/0001", "C#"],
     ["2019-12-24", "Python"],
     ["Feb 21 2021", "Python"],
 ];
@@ -19,12 +19,11 @@ const ReverseDateParser: React.FC = () => {
     const [parsedOptions, setParsedOptions] = React.useState<string[]>([]);
 
     useEffect(() => {
-        let randomOption = defaultOptions[Math.floor(Math.random() * defaultOptions.length)]
-
+        let randomOption = defaultStringOptions[Math.floor(Math.random() * defaultStringOptions.length)]
         setCurrentLanguage(randomOption[1]);
         setCurrentString(randomOption[0]);
-        setParsedOptions(parseDateString(currentString, currentLanguage));
-    }, [])
+        setParsedOptions(parseDateString(randomOption[0], randomOption[1]));
+    }, []);
 
     const onUserInput = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
         let currentString = event.target.value;
