@@ -18,7 +18,7 @@ The objective is to remove the time it takes for a developer to search a particu
 
 |  Language     | Specifiers | Fully Supported
 | ----------- | ----------- | ----------- |
-| C# | [C#](./SPECIFIERS.md#C#)|No|
+| C# | [C#](./SPECIFIERS.md#C%23)|No|
 | Python | [Python](./SPECIFIERS.md#Python)|No|
 | one | [Python](./SPECIFIERS.md#Test)|No|
 | two | [Python](./SPECIFIERS.md#Test2)|No|
