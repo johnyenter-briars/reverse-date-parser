@@ -94,7 +94,7 @@ describe("Python Test Cases", () => {
 
 	test("Python Test Case: feb 28 0006", () => {
 		var result = parseDateString("feb 28 0006", "Python");
-		expect(new Set(result)).toEqual(new Set(["%b %-d %Y"]));
+		expect(new Set(result)).toEqual(new Set(["%b %-d %Y", "%b %d %Y"]));
 	});
 
 	test("Python Test Case: 6/12/2021", () => {
