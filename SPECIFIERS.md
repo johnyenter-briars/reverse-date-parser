@@ -1,14 +1,14 @@
 # Supported Specifiers
 
-## Changing This
+## C#
 [Documentation](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
 
 | Format Specifier      |Description| Example | Supported
 | ----------- | ----------- | ----------- | ----------- |
-|"d"|The day of the month, from 1 through 31. More information: The "d" Custom Format Specifier.|2009-06-01T13:45:30 -> 1 2009-06-15T13:45:30 -> 15|No|
-|"dd"|The day of the month, from 01 through 31. More information: The "dd" Custom Format Specifier.|2009-06-01T13:45:30 -> 01 2009-06-15T13:45:30 -> 15|No|
-|"ddd"|The abbreviated name of the day of the week. More information: The "ddd" Custom Format Specifier.|2009-06-15T13:45:30 -> Mon (en-US) 2009-06-15T13:45:30 -> Пн (ru-RU) 2009-06-15T13:45:30 -> lun. (fr-FR) |No|
-|"dddd"|The full name of the day of the week. More information: The "dddd" Custom Format Specifier.|2009-06-15T13:45:30 -> Monday (en-US) 2009-06-15T13:45:30 -> понедельник (ru-RU) 2009-06-15T13:45:30 -> lundi (fr-FR)|No|
+|"d"|The day of the month, from 1 through 31. More information: The "d" Custom Format Specifier.|2009-06-01T13:45:30 -> 1 2009-06-15T13:45:30 -> 15|Yes|
+|"dd"|The day of the month, from 01 through 31. More information: The "dd" Custom Format Specifier.|2009-06-01T13:45:30 -> 01 2009-06-15T13:45:30 -> 15|Yes|
+|"ddd"|The abbreviated name of the day of the week. More information: The "ddd" Custom Format Specifier.|2009-06-15T13:45:30 -> Mon (en-US) 2009-06-15T13:45:30 -> Пн (ru-RU) 2009-06-15T13:45:30 -> lun. (fr-FR) |Yes|
+|"dddd"|The full name of the day of the week. More information: The "dddd" Custom Format Specifier.|2009-06-15T13:45:30 -> Monday (en-US) 2009-06-15T13:45:30 -> понедельник (ru-RU) 2009-06-15T13:45:30 -> lundi (fr-FR)|Yes|
 |"f"|The tenths of a second in a date and time value. More information: The "f" Custom Format Specifier.|2009-06-15T13:45:30.6170000 -> 6 2009-06-15T13:45:30.05 -> 0|No|
 |"ff"|The hundredths of a second in a date and time value. More information: The "ff" Custom Format Specifier.|2009-06-15T13:45:30.6170000 -> 61 2009-06-15T13:45:30.0050000 -> 00|No|
 |"fff"|The milliseconds in a date and time value. More information: The "fff" Custom Format Specifier.|6/15/2009 13:45:30.617 -> 617 6/15/2009 13:45:30.0005 -> 000|No|
@@ -31,18 +31,18 @@
 |"K"|Time zone information. More information: The "K" Custom Format Specifier.|With DateTime values: 2009-06-15T13:45:30, Kind Unspecified -> 2009-06-15T13:45:30, Kind Utc -> Z 2009-06-15T13:45:30, Kind Local -> -07:00 (depends on local computer settings) With DateTimeOffset values: 2009-06-15T01:45:30-07:00 --> -07:00 2009-06-15T08:45:30+00:00 --> +00:00|No|
 |"m"|The minute, from 0 through 59. More information: The "m" Custom Format Specifier.|2009-06-15T01:09:30 -> 9 2009-06-15T13:29:30 -> 29|No|
 |"mm"|The minute, from 00 through 59. More information: The "mm" Custom Format Specifier.|2009-06-15T01:09:30 -> 09 2009-06-15T01:45:30 -> 45|No|
-|"M"|The month, from 1 through 12. More information: The "M" Custom Format Specifier.|2009-06-15T13:45:30 -> 6|No|
-|"MM"|The month, from 01 through 12. More information: The "MM" Custom Format Specifier.|2009-06-15T13:45:30 -> 06|No|
-|"MMM"|The abbreviated name of the month. More information: The "MMM" Custom Format Specifier.|2009-06-15T13:45:30 -> Jun (en-US) 2009-06-15T13:45:30 -> juin (fr-FR) 2009-06-15T13:45:30 -> Jun (zu-ZA)|No|
-|"MMMM"|The full name of the month. More information: The "MMMM" Custom Format Specifier.|2009-06-15T13:45:30 -> June (en-US) 2009-06-15T13:45:30 -> juni (da-DK) 2009-06-15T13:45:30 -> uJuni (zu-ZA)|No|
+|"M"|The month, from 1 through 12. More information: The "M" Custom Format Specifier.|2009-06-15T13:45:30 -> 6|Yes|
+|"MM"|The month, from 01 through 12. More information: The "MM" Custom Format Specifier.|2009-06-15T13:45:30 -> 06|Yes|
+|"MMM"|The abbreviated name of the month. More information: The "MMM" Custom Format Specifier.|2009-06-15T13:45:30 -> Jun (en-US) 2009-06-15T13:45:30 -> juin (fr-FR) 2009-06-15T13:45:30 -> Jun (zu-ZA)|Yes|
+|"MMMM"|The full name of the month. More information: The "MMMM" Custom Format Specifier.|2009-06-15T13:45:30 -> June (en-US) 2009-06-15T13:45:30 -> juni (da-DK) 2009-06-15T13:45:30 -> uJuni (zu-ZA)|Yes|
 |"s"|The second, from 0 through 59. More information: The "s" Custom Format Specifier.|2009-06-15T13:45:09 -> 9|No|
 |"ss"|The second, from 00 through 59. More information: The "ss" Custom Format Specifier.|2009-06-15T13:45:09 -> 09|No|
 |"t"|The first character of the AM/PM designator. More information: The "t" Custom Format Specifier.|2009-06-15T13:45:30 -> P (en-US) 2009-06-15T13:45:30 -> 午 (ja-JP)2009-06-15T13:45:30 -> (fr-FR)|No|
 |"tt"|The AM/PM designator. More information: The"tt" Custom Format Specifier.|2009-06-15T13:45:30 -> PM (en-US) 2009-06-15T13:45:30 -> 午後 (ja-JP)2009-06-15T13:45:30 -> (fr-FR)|No|
-|"y"|The year, from 0 to 99. More information: The "y" Custom Format Specifier.|0001-01-01T00:00:00 -> 1 0900-01-01T00:00:00 -> 0 1900-01-01T00:00:00 -> 0 2009-06-15T13:45:30 -> 9 2019-06-15T13:45:30 -> 19|No|
-|"yy"|The year, from 00 to 99. More information: The "yy" Custom Format Specifier.|0001-01-01T00:00:00 -> 01 0900-01-01T00:00:00 -> 00 1900-01-01T00:00:00 -> 00 2019-06-15T13:45:30 -> 19|No|
+|"y"|The year, from 0 to 99. More information: The "y" Custom Format Specifier.|0001-01-01T00:00:00 -> 1 0900-01-01T00:00:00 -> 0 1900-01-01T00:00:00 -> 0 2009-06-15T13:45:30 -> 9 2019-06-15T13:45:30 -> 19|Yes|
+|"yy"|The year, from 00 to 99. More information: The "yy" Custom Format Specifier.|0001-01-01T00:00:00 -> 01 0900-01-01T00:00:00 -> 00 1900-01-01T00:00:00 -> 00 2019-06-15T13:45:30 -> 19|Yes|
 |"yyy"|The year, with a minimum of three digits. More information: The "yyy" Custom Format Specifier.|0001-01-01T00:00:00 -> 001 0900-01-01T00:00:00 -> 900 1900-01-01T00:00:00 -> 1900 2009-06-15T13:45:30 -> 2009|No|
-|"yyyy"|The year as a four-digit number. More information: The "yyyy" Custom Format Specifier.|0001-01-01T00:00:00 -> 0001 0900-01-01T00:00:00 -> 0900 1900-01-01T00:00:00 -> 1900 2009-06-15T13:45:30 -> 2009|No|
+|"yyyy"|The year as a four-digit number. More information: The "yyyy" Custom Format Specifier.|0001-01-01T00:00:00 -> 0001 0900-01-01T00:00:00 -> 0900 1900-01-01T00:00:00 -> 1900 2009-06-15T13:45:30 -> 2009|Yes|
 |"yyyyy"|The year as a five-digit number. More information: The "yyyyy" Custom Format Specifier.|0001-01-01T00:00:00 -> 00001 2009-06-15T13:45:30 -> 02009|No|
 |"z"|Hours offset from UTC, with no leading zeros. More information: The "z" Custom Format Specifier.|2009-06-15T13:45:30-07:00 -> -7|No|
 |"zz"|Hours offset from UTC, with a leading zero for a single-digit value. More information: The "zz" Custom Format Specifier.|2009-06-15T13:45:30-07:00 -> -07|No|
@@ -89,10 +89,3 @@
 |%x|Locale’s appropriate date representation.|09/08/13|No|
 |%X|Locale’s appropriate time representation.|07:06:05|No|
 |%%|A literal '%' character.|%|No|
-
-## C#
-
-# Test
-## Test2
-### Test3
-#### Test4

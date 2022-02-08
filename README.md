@@ -16,14 +16,10 @@ The objective is to remove the time it takes for a developer to search a particu
 
 ## Supported Languages
 
-|  Language     | Specifiers | Fully Supported
+|  Language     | Specifiers Link | Currently Fully Supported
 | ----------- | ----------- | ----------- |
-| C# | [C#](./SPECIFIERS.md#C%23)|No|
+| C# | [C#](./SPECIFIERS.md)|No|
 | Python | [Python](./SPECIFIERS.md#Python)|No|
-| one | [Python](./SPECIFIERS.md#Test)|No|
-| two | [Python](./SPECIFIERS.md#Test2)|No|
-| three | [Python](./SPECIFIERS.md#Test3)|No|
-| four | [Python](./SPECIFIERS.md#Test4)|No|
 
 ## Built With
 
