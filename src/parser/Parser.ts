@@ -9,10 +9,6 @@ function matchElement(element: string, possibleElements: Array<PossibleElement>)
     var possibleMatches = new Array<PossibleElement>();
 
     for (let possibleSection of possibleElements) {
-        if (possibleSection.sectionName === 'month_one_or_two_digits')
-        {
-            var x = 50;
-        }
         var result = possibleSection.regexFunc(element)
 
         if (result) {
