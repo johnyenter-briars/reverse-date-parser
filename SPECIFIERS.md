@@ -57,7 +57,7 @@
 ## Python 
 [Documentation](https://docs.python.org/3/library/datetime.html)
 | Format Specifier|Description|Example|Supported
-| ----------- | ----------- | ----------- | ----------- | ----------- |
+| ----------- | ----------- | ----------- | ----------- |
 |%a|Weekday as locale’s abbreviated name.|Sun|No|
 |%A|Weekday as locale’s full name.|Sunday|No|
 |%w|Weekday as a decimal number, where 0 is Sunday and 6 is Saturday.|0|No|
