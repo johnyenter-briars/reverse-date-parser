@@ -1,6 +1,6 @@
-## Supported Specifiers
+# Supported Specifiers
 
-### C# 
+## C# 
 [Documentation](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
 
 | Format Specifier      |Description| Example | Supported
@@ -54,7 +54,7 @@
 | \ |The escape character. More information: Character literals and Using the Escape Character.|2009-06-15T13:45:30 (h \h) -> 1 h|No|
 |Any other character|The character is copied to the result string unchanged. More information: Character literals.|2009-06-15T01:45:30 (arr hh:mm t) -> arr 01:45 A|No|
 
-### Python 
+## Python 
 [Documentation](https://docs.python.org/3/library/datetime.html)
 | Format Specifier|Description|Example|Supported
 | ----------- | ----------- | ----------- | ----------- | ----------- |
