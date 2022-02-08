@@ -1,4 +1,4 @@
-# Supported Specifiers
+# Language Specifiers
 
 ## C#
 [Documentation](https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
