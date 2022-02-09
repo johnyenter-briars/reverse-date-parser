@@ -1,4 +1,4 @@
-import { FormControl, IconButton, InputLabel, List, ListItem, ListItemText, MenuItem, Select, TextField } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import ResultsList from './ResultsList';

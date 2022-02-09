@@ -6,9 +6,6 @@ function constructParseFunction(inRegex: string | RegExp, outRegex: string | Reg
             var regexp = new RegExp(inRegex),
                 regexp2 = new RegExp(outRegex);
 
-            let foo1 = regexp.test(dateElement);
-            let foo2 = regexp2.test(dateElement);
-
             if (regexp.test(dateElement) && !regexp2.test(dateElement)) {
                 return regexp.exec(dateElement);
             }
@@ -26,49 +23,27 @@ function constructParseFunction(inRegex: string | RegExp, outRegex: string | Reg
     };
 }
 
-function month_one_or_two_digits() {
-    return constructParseFunction('^(1[0-2]|[1-9])$');
-}
+const month_one_or_two_digits = () => constructParseFunction('^(1[0-2]|[1-9])$');
 
-function day_of_month() {
-    return constructParseFunction('^([1-3][0-9]|[1-9])$', '^(3[2-9])$');
-}
+const day_of_month = () => constructParseFunction('^([1-3][0-9]|[1-9])$', '^(3[2-9])$');
 
-function day_of_month_two_digits() {
-    return constructParseFunction('^(0[1-9]|1[0-9]|2[0-9])$');
-}
+const day_of_month_two_digits = () => constructParseFunction('^(0[1-9]|1[0-9]|2[0-9])$');
 
-function day_abvr() {
-    return constructParseFunction(/^(Sun|Mon|Tue|Wed|Thu|Fri|Sat)$/i);
-}
+const day_abvr = () => constructParseFunction(/^(Sun|Mon|Tue|Wed|Thu|Fri|Sat)$/i);
 
-function day_full() {
-    return constructParseFunction(/^(Sunday|Monday|Tuesday|Wednesday|Thusday|Friday|Saturday)$/i);
-}
+const day_full = () => constructParseFunction(/^(Sunday|Monday|Tuesday|Wednesday|Thusday|Friday|Saturday)$/i);
 
-function month_two_digits() {
-    return constructParseFunction('^(0[1-9]|1[0-2])$');
-}
+const month_two_digits = () => constructParseFunction('^(0[1-9]|1[0-2])$');
 
-function month_abvr() {
-    return constructParseFunction(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/i);
-}
+const month_abvr = () => constructParseFunction(/^(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)$/i);
 
-function month_full() {
-    return constructParseFunction(/^(January|February|March|April|May|June|July|August|September|Octover|November|Deccember)$/i);
-}
+const month_full = () => constructParseFunction(/^(January|February|March|April|May|June|July|August|September|Octover|November|Deccember)$/i);
 
-function year_one_or_two_digits() {
-    return constructParseFunction('^(0?[1-9]|[1-9][0-9])$');
-}
+const year_one_or_two_digits = () => constructParseFunction('^(0?[1-9]|[1-9][0-9])$');
 
-function year_two_digits() {
-    return constructParseFunction('^[0-9][0-9]$');
-}
+const year_two_digits = () => constructParseFunction('^[0-9][0-9]$');
 
-function year_four_digits() {
-    return constructParseFunction('^[0-9]{4}$');
-}
+const year_four_digits = () => constructParseFunction('^[0-9]{4}$');
 
 export const PossibleGrammars: Array<Grammar>
     = [{
@@ -83,7 +58,6 @@ export const PossibleGrammars: Array<Grammar>
             {
                 sectionName: "day_of_month_two_digits",
                 formatSpecifier: "dd",
-                // regexFunc: constructParseFunction('^([0-3][0-9])$', '^([3-9][2-9])$'),
                 regexFunc: day_of_month_two_digits(),
                 type: "day"
             },

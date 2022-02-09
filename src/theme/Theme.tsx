@@ -1,7 +1,7 @@
 import { ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material/styles'
-import { blue, grey } from '@mui/material/colors';
 import ReverseDateParser from '../app/ReverseDateParser';
+import './App.css';
 
 const RdpTheme = createTheme({
     typography: {
