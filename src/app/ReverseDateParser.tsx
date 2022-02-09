@@ -1,11 +1,9 @@
 import React, { useEffect } from 'react';
-import '../theme/App.css';
 import { parseDateString } from '../parser/Parser';
 import { Box } from '@mui/system';
 import Typography from '@mui/material/Typography';
 import InputArea from '../components/InputArea';
 import NavBar from '../components/NavBar';
-import { Button } from '@mui/material';
 
 const defaultStringOptions = [
     ["12/03/0001", "C#"],
@@ -27,7 +25,6 @@ const ReverseDateParser: React.FC = () => {
 
     const onUserInput = (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>): void => {
         let currentString = event.target.value;
-        let options = parseDateString(currentString, currentLanguage);
         setCurrentString(event.target.value);
         setParsedOptions(parseDateString(currentString, currentLanguage));
     }
