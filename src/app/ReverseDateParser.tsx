@@ -4,6 +4,7 @@ import { Box } from '@mui/system';
 import Typography from '@mui/material/Typography';
 import InputArea from '../components/InputArea';
 import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 
 const defaultStringOptions = [
     ["12/03/0001", "C#"],
@@ -45,7 +46,7 @@ const ReverseDateParser: React.FC = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        margin: 'auto',
+                        // margin: 'auto',
                         textAlign: 'center',
                         minHeight: '100vh',
                         // background: 'orange',
@@ -56,7 +57,7 @@ const ReverseDateParser: React.FC = () => {
                         sx={{
                             display: 'flex-box',
                             justifyContent: 'center',
-                            margin: 'auto',
+                            // margin: 'auto',
                             // background: 'yellow',
                         }}
                     >
@@ -86,7 +87,8 @@ const ReverseDateParser: React.FC = () => {
                         <Typography
                             variant='body1'
                             sx={{
-                                color: 'secondary.light',
+                                color: '#B9B8D3',
+                                // color: 'secondary.light',
                             }}
                         >
                             Enter a date string into the box below, and see the possible format strings that would parse to it!
@@ -95,7 +97,8 @@ const ReverseDateParser: React.FC = () => {
                             variant='body1'
                             sx={{
                                 marginBottom: '2em',
-                                color: 'secondary.light',
+                                // color: 'secondary.light',
+                                color: '#B9B8D3',
                             }}
                         >
                             Change the language on the right side.
@@ -109,6 +112,7 @@ const ReverseDateParser: React.FC = () => {
                         />
                     </Box>
                 </Box>
+                <Footer />
             </div>
         </div>
     );
