@@ -10,26 +10,6 @@ const Footer: React.FC = () => {
                     textAlign: 'right'
                 }}
             >
-                {/* <div >
-                    <List >
-                        <ListItem >
-                            <a
-                                href="/team"
-                                target="_blank"
-                            >
-                                About us
-                            </a>
-                        </ListItem>
-                        <ListItem >
-                            <a
-                                href="/terms_conditions"
-                                target="_blank"
-                            >
-                                Terms & Conditions
-                            </a>
-                        </ListItem>
-                    </List>
-                </div> */}
                 <div >
                     &copy; 2021-2022 John Yenter-Briars
                 </div>

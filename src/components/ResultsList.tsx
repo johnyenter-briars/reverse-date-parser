@@ -32,7 +32,6 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
                             >
                                 <Box
                                     sx={{
-
                                         bgcolor: '#6E75A8',
                                         display: 'flex',
                                         borderRadius: '5px',
