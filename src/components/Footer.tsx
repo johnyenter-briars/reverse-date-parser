@@ -1,7 +1,5 @@
 import React from "react";
-import { Box, IconButton, List, ListItem, makeStyles, Typography } from "@mui/material";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { Box, Typography } from "@mui/material";
 
 const Footer: React.FC = () => {
     return (
@@ -9,7 +7,6 @@ const Footer: React.FC = () => {
             <Box
                 sx={{
                     bgcolor: 'secondary.dark',
-                    // textAlign: 'left'efteft
                     display: 'flex',
                     flexDirection: 'row',
                     justifyContent: 'space-between',
@@ -18,37 +15,47 @@ const Footer: React.FC = () => {
                 <Box
                     sx={{
                         bgcolor: 'secondary.dark',
-                        // textAlign: 'left',
-                        // justifyContent: 'flex-start',
                     }}
                 >
-                    See an issue with this page? 
+                    Issue with this page?
                     <a
                         href="https://github.com/johnyenter-briars/reverse-date-parser/issues/new"
-                    >Let me know about it!</a>
+                    > Let me know!</a>
+                </Box>
+                <Box
+                    sx={{
+                        bgcolor: 'primary.main',
+                        borderRadius: '5px',
+                        border: '2px solid #90C3C8',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}
+                >
+                    <Typography
+                        sx={{
+                            margin: '2px',
+                        }}
+                    
+                    >
+                        Inspired by the wonderfully essential: 
+                        <a
+                            href='https://crontab.guru/'
+                        >
+                            Crontab Guru
+                        </a>
+                    </Typography>
+
                 </Box>
                 <Box
 
                     sx={{
                         bgcolor: 'secondary.dark',
-                        // textAlign: 'right',
-                        // float: 'right',
-                        // justifyContent: 'flex-end',
                     }}
                 >
                     &copy; 2021-2022 John Yenter-Briars
                 </Box>
             </Box>
-            {/* <Box
-                sx={{
-                    bgcolor: 'secondary.dark',
-                    textAlign: 'right'
-                }}
-            >
-                <div >
-                    &copy; 2021-2022 John Yenter-Briars
-                </div>
-            </Box> */}
         </footer>
     );
 }

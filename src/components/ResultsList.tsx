@@ -23,7 +23,6 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
                             <ListItem
                                 key={option}
                                 sx={{
-                                    // width: 'auto',
                                     borderBlockColor: '#74A4BC',
                                     display: 'flow-root list-item'
 
@@ -48,13 +47,10 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
                                     <CopyToClipboard>
                                         {({ copy }) => (
                                             <IconButton
-                                                // variant="contained"
-                                                // color="primary"
                                                 onClick={() => copy(option)}
                                             >
                                                 <ContentCopyIcon />
                                             </IconButton>
-
                                         )}
                                     </CopyToClipboard>
                                 </Box>
@@ -65,7 +61,6 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
             </List>
         </Box>
     )
-
 }
 
 export default ResultsList

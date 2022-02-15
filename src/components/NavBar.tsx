@@ -35,7 +35,7 @@ const NavBar: React.FC = () => {
                         }}
                     >
                         <ArrowBackIcon />
-                    </IconButton>
+                    </IconButton> 
                 </Box>
                 <Typography
                     variant="h6"

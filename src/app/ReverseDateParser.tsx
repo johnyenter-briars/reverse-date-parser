@@ -46,10 +46,8 @@ const ReverseDateParser: React.FC = () => {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        // margin: 'auto',
                         textAlign: 'center',
-                        minHeight: '90.7vh',
-                        // background: 'orange',
+                        minHeight: '89.4vh',
                         bgcolor: 'secondary.dark',
                     }}
                 >
@@ -57,20 +55,12 @@ const ReverseDateParser: React.FC = () => {
                         sx={{
                             display: 'flex-box',
                             justifyContent: 'center',
-                            // margin: 'auto',
-                            // background: 'yellow',
                         }}
                     >
                         <Box
                             sx={{
                                 display: 'flex',
                                 justifyContent: 'center',
-                                // margin: '40px',
-                                // background: 'green',
-                                // border: '10px solid black',
-                                // borderRadius: '500px',
-                                // padding: '20px',
-
                             }}
                         >
 
@@ -88,7 +78,6 @@ const ReverseDateParser: React.FC = () => {
                             variant='body1'
                             sx={{
                                 color: '#B9B8D3',
-                                // color: 'secondary.light',
                             }}
                         >
                             Enter a date string into the box below, and see the possible format strings that would parse to it!
@@ -97,7 +86,6 @@ const ReverseDateParser: React.FC = () => {
                             variant='body1'
                             sx={{
                                 marginBottom: '2em',
-                                // color: 'secondary.light',
                                 color: '#B9B8D3',
                             }}
                         >
