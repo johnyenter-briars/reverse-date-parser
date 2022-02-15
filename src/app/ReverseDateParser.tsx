@@ -48,7 +48,7 @@ const ReverseDateParser: React.FC = () => {
                         alignItems: 'center',
                         // margin: 'auto',
                         textAlign: 'center',
-                        minHeight: '100vh',
+                        minHeight: '90.7vh',
                         // background: 'orange',
                         bgcolor: 'secondary.dark',
                     }}
