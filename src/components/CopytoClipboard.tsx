@@ -1,4 +1,4 @@
-import Tooltip, {TooltipProps} from '@mui/material/Tooltip';
+import Tooltip, { TooltipProps } from '@mui/material/Tooltip';
 import * as React from "react";
 
 interface ChildProps {
@@ -26,7 +26,7 @@ class CopyToClipboard extends React.Component<Props, OwnState> {
             <Tooltip
                 open={this.state.showTooltip}
                 title={"Copied to clipboard!"}
-                leaveDelay={1500}
+                leaveDelay={400}
                 onClose={this.handleOnTooltipClose}
                 {...this.props.TooltipProps || {}}
             >

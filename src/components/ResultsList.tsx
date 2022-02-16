@@ -23,30 +23,37 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
                             <ListItem
                                 key={option}
                                 sx={{
-                                    width: 'auto',
+                                    borderBlockColor: '#74A4BC',
+                                    display: 'flow-root list-item'
+
                                 }}
                                 divider={true}
                             >
-                                <ListItemText
-                                    primary={option}
-                                />
-                                <CopyToClipboard>
-                                    {({ copy }) => (
-                                        // <ContentCopyIcon
-                                        //     // variant="contained"
-                                        //     // color="primary"
-                                        //     onClick={() => copy(option)}
-                                        // />
-                                        <IconButton
-                                            // variant="contained"
-                                            // color="primary"
-                                            onClick={() => copy(option)}
-                                        >
-                                            <ContentCopyIcon />
-                                        </IconButton>
-                                        
-                                    )}
-                                </CopyToClipboard>
+                                <Box
+                                    sx={{
+                                        bgcolor: '#6E75A8',
+                                        display: 'flex',
+                                        borderRadius: '5px',
+                                        border: '2px solid #90C3C8',
+                                    }}
+                                >
+                                    <ListItemText
+                                        primary={option}
+                                        sx={{
+                                            textAlign: 'center',
+                                            margin: 'auto'
+                                        }}
+                                    />
+                                    <CopyToClipboard>
+                                        {({ copy }) => (
+                                            <IconButton
+                                                onClick={() => copy(option)}
+                                            >
+                                                <ContentCopyIcon />
+                                            </IconButton>
+                                        )}
+                                    </CopyToClipboard>
+                                </Box>
                             </ListItem>
                         );
                     })
@@ -54,7 +61,6 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
             </List>
         </Box>
     )
-
 }
 
 export default ResultsList

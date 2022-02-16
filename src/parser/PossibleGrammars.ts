@@ -130,7 +130,6 @@ export const PossibleGrammars: Array<Grammar>
             {
                 sectionName: "day_of_month_two_digits",
                 formatSpecifier: "%d",
-                // regexFunc: constructParseFunction('^(0[1-9]|1[0-2])$'),
                 regexFunc: day_of_month_two_digits(),
                 type: "day",
             },

@@ -12,20 +12,17 @@ const RdpTheme = createTheme({
     },
     palette: {
         primary: {
-            main: '#77DD77',
-            light: 'ffffff',
-            dark: '000000'
-            
+            main: '#77DD77', //light green
+            light: '#FF0000', //open
+            dark: '#FF0000' //open
         },
         secondary: {
-            light: '#BF55EC',
-            dark: '#37505c',
-            // dark: '#FFFFFF',
-            main: '#0044ff',
-            contrastText: '#ffcc00',
+            light: '#BF55EC', //pink
+            dark: '#37505c', //light grey
+            main: '#FF0000', //open
         },
         background: {
-            default: 'ffffff'
+            default: '#FF0000' //open
         },
         contrastThreshold: 3,
         tonalOffset: 0.2,
@@ -35,7 +32,7 @@ const RdpTheme = createTheme({
 export default function ThemedApp() {
     return (
         <ThemeProvider theme={RdpTheme}>
-            <ReverseDateParser/>
+            <ReverseDateParser />
         </ThemeProvider>
     );
 }
