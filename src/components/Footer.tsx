@@ -36,9 +36,9 @@ const Footer: React.FC = () => {
                         sx={{
                             margin: '2px',
                         }}
-                    
+
                     >
-                        Inspired by the wonderfully essential: 
+                        Inspired by the wonderfully essential:
                         <a
                             href='https://crontab.guru/'
                         >

@@ -10,7 +10,6 @@ const NavBar: React.FC = () => {
             position="static"
             sx={{
                 bgcolor: 'secondary.dark',
-                // flex: '0 1 auto',
             }}>
             <Toolbar>
                 <Box
@@ -35,7 +34,7 @@ const NavBar: React.FC = () => {
                         }}
                     >
                         <ArrowBackIcon />
-                    </IconButton> 
+                    </IconButton>
                 </Box>
                 <Typography
                     variant="h6"

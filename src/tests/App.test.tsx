@@ -99,22 +99,22 @@ describe("Python Test Cases", () => {
 
 	test("Python Test Case: 6/12/2021", () => {
 		var result = parseDateString("6/12/2021", "Python");
-		expect(new Set(result)).toEqual(new Set(["%-d/%-m/%Y","%-d/%m/%Y","%-m/%-d/%Y","%-m/%d/%Y",]));
+		expect(new Set(result)).toEqual(new Set(["%-d/%-m/%Y", "%-d/%m/%Y", "%-m/%-d/%Y", "%-m/%d/%Y",]));
 	});
 
 	test("Python Test Case: 06-06-2021", () => {
 		var result = parseDateString("06-06-2021", "Python");
-		expect(new Set(result)).toEqual(new Set(["%d-%m-%Y","%m-%d-%Y",]));
+		expect(new Set(result)).toEqual(new Set(["%d-%m-%Y", "%m-%d-%Y",]));
 	});
 
 	test("Python Test Case: 06/12/98", () => {
 		var result = parseDateString("06/12/98", "Python");
-		expect(new Set(result)).toEqual(new Set(["%d/%-m/%y","%d/%m/%y","%m/%-d/%y","%m/%d/%y",]));
+		expect(new Set(result)).toEqual(new Set(["%d/%-m/%y", "%d/%m/%y", "%m/%-d/%y", "%m/%d/%y",]));
 	});
 
 	test("Python Test Case: 6 01 1998", () => {
 		var result = parseDateString("6 01 1998", "Python");
-		expect(new Set(result)).toEqual(new Set(["%-d %m %Y","%-m %d %Y",]));
+		expect(new Set(result)).toEqual(new Set(["%-d %m %Y", "%-m %d %Y",]));
 	});
 
 	test("Python Test Case: march 1 98", () => {

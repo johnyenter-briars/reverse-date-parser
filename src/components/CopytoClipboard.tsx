@@ -1,4 +1,4 @@
-import Tooltip, {TooltipProps} from '@mui/material/Tooltip';
+import Tooltip, { TooltipProps } from '@mui/material/Tooltip';
 import * as React from "react";
 
 interface ChildProps {
