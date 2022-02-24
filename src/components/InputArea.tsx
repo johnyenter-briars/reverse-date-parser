@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select, styled, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React from 'react';
 import ResultsList from './ResultsList';
@@ -12,6 +12,43 @@ interface IInputAreaProps {
 }
 const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
 
+    // '& .MuiInput-u`nderline:before': { borderBottomColor: 'orange' },
+    // '& .MuiInput-underline:after': { borderBottomColor: 'red' },
+    const StyledInput = styled(TextField)`
+        & .MuiFilledInput-underline:before {
+            borderBottomColor: 'red';
+        }
+        & .MuiFilledInput-underline:after {
+            borderBottomColor: 'green';
+        }
+    `;
+
+    StyledInput.defaultProps = {
+        label: props.currentLanguage,
+        value: props.currentString,
+        onChange: props.onUserInput,
+        id: "filled-basic",
+        variant: "filled",
+        InputProps: {
+            autoFocus: true,
+        },
+        sx: {
+            textField: {
+                width: '90%',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                paddingBottom: 0,
+                marginTop: 0,
+                fontWeight: 500,
+            },
+            input: {
+                color: 'secondary.light'
+            },
+
+        }
+    }
+
+
     return (
         <Box
             sx={{
@@ -19,7 +56,8 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                 justifyContent: 'center',
                 margin: 'auto',
                 borderRadius: '25px',
-                border: '2px solid #73AD21',
+                border: '2px solid',
+                borderColor: 'primary.main',
             }}
         >
             <Box
@@ -35,27 +73,34 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     sx={{
                     }}
                 >
-                    <TextField
+                    <StyledInput />
+                    {/* <TextField
                         value={props.currentString}
                         onChange={props.onUserInput}
                         id="outlined-basic"
                         label={props.currentLanguage}
-                        variant="filled"
+                        variant="outlined"
+                        InputProps={{
+                            autoFocus: true,
+                        }}
+                        // color='secondary'
                         sx={{
+                            '& .MuiInput-underline:before': { borderBottomColor: 'orange' },
+                            '& .MuiInput-underline:after': { borderBottomColor: 'red' },
                             textField: {
                                 width: '90%',
                                 marginLeft: 'auto',
                                 marginRight: 'auto',
                                 paddingBottom: 0,
                                 marginTop: 0,
-                                fontWeight: 500
+                                fontWeight: 500,
                             },
                             input: {
                                 color: 'secondary.light'
-                            }
+                            },
 
                         }}
-                    />
+                    /> */}
                 </Box>
                 <ResultsList
                     options={props.parsedOptions}

@@ -14,13 +14,16 @@ const Footer: React.FC = () => {
             >
                 <Box
                     sx={{
-                        bgcolor: 'secondary.dark',
+                        color: 'secondary.main',
                     }}
                 >
-                    Issue with this page?
-                    <a
-                        href="https://github.com/johnyenter-briars/reverse-date-parser/issues/new"
-                    > Let me know!</a>
+                    <p>
+                        Issue with this page?
+                        <a
+                            href="https://github.com/johnyenter-briars/reverse-date-parser/issues/new"
+                        > Let me know!
+                        </a>
+                    </p>
                 </Box>
                 <Box
                     sx={{
@@ -38,7 +41,7 @@ const Footer: React.FC = () => {
                         }}
 
                     >
-                        Inspired by the wonderfully essential:
+                        Inspired by the wonderfully helpful:
                         <a
                             href='https://crontab.guru/'
                         >
@@ -50,10 +53,12 @@ const Footer: React.FC = () => {
                 <Box
 
                     sx={{
-                        bgcolor: 'secondary.dark',
+                        color: 'secondary.main',
                     }}
                 >
-                    &copy; 2021-2022 John Yenter-Briars
+                    <p>
+                        &copy; 2021-2022 John Yenter-Briars
+                    </p>
                 </Box>
             </Box>
         </footer>
