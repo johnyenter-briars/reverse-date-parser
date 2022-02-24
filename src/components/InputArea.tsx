@@ -1,5 +1,5 @@
 import { FormControl, InputLabel, MenuItem, Select, styled, TextField } from '@mui/material';
-import { Box } from '@mui/system';
+import { Box, margin } from '@mui/system';
 import React from 'react';
 import ResultsList from './ResultsList';
 
@@ -11,44 +11,6 @@ interface IInputAreaProps {
     onLanguageSelect: (event: { target: { value: React.SetStateAction<string>; }; }) => void,
 }
 const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
-
-    // '& .MuiInput-u`nderline:before': { borderBottomColor: 'orange' },
-    // '& .MuiInput-underline:after': { borderBottomColor: 'red' },
-    const StyledInput = styled(TextField)`
-        & .MuiFilledInput-underline:before {
-            borderBottomColor: 'red';
-        }
-        & .MuiFilledInput-underline:after {
-            borderBottomColor: 'green';
-        }
-    `;
-
-    StyledInput.defaultProps = {
-        label: props.currentLanguage,
-        value: props.currentString,
-        onChange: props.onUserInput,
-        id: "filled-basic",
-        variant: "filled",
-        InputProps: {
-            autoFocus: true,
-        },
-        sx: {
-            textField: {
-                width: '90%',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                paddingBottom: 0,
-                marginTop: 0,
-                fontWeight: 500,
-            },
-            input: {
-                color: 'secondary.light'
-            },
-
-        }
-    }
-
-
     return (
         <Box
             sx={{
@@ -69,24 +31,20 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     margin: '10px',
                 }}
             >
-                <Box
-                    sx={{
-                    }}
-                >
-                    <StyledInput />
-                    {/* <TextField
+                <Box>
+                    <TextField
+                        variant="standard"
                         value={props.currentString}
                         onChange={props.onUserInput}
                         id="outlined-basic"
                         label={props.currentLanguage}
-                        variant="outlined"
                         InputProps={{
                             autoFocus: true,
                         }}
-                        // color='secondary'
                         sx={{
-                            '& .MuiInput-underline:before': { borderBottomColor: 'orange' },
-                            '& .MuiInput-underline:after': { borderBottomColor: 'red' },
+                            '& .MuiInput-underline:after': { borderBottomColor: 'secondary.main' },
+                            '& .MuiInputLabel-standard': { color: 'secondary.main' },
+                            '& .Mui-focused': { color: 'secondary.main' },
                             textField: {
                                 width: '90%',
                                 marginLeft: 'auto',
@@ -100,7 +58,7 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                             },
 
                         }}
-                    /> */}
+                    />
                 </Box>
                 <ResultsList
                     options={props.parsedOptions}
@@ -112,14 +70,23 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     margin: '10px',
                 }}
             >
-                <FormControl variant="filled" sx={{ minWidth: 120 }}>
-                    <InputLabel id="language-input-label">Language</InputLabel>
+                <FormControl variant="standard" sx={{ minWidth: 120 }}>
+                    <InputLabel 
+                        id="language-input-label"
+                        sx={{
+                            color: 'secondary.main',
+                        }}
+                    >Language</InputLabel>
                     <Select
                         labelId="select"
                         id="select"
+                        label="test"
                         value={props.currentLanguage}
                         onChange={props.onLanguageSelect}
+                        variant="standard"
                         sx={{
+                            '& .MuiInput-underline:before': { borderBottomColor: 'secondary.main' },
+                            '& .MuiInput-underline:after': { borderBottomColor: 'red' },
                             color: 'secondary.light',
                         }}
                     >
