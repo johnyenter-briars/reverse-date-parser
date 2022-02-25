@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 
 const Footer: React.FC = () => {
     return (
@@ -19,10 +19,14 @@ const Footer: React.FC = () => {
                 >
                     <p>
                         Issue with this page?
-                        <a
+                        <Link
+                            sx={{
+                                color: 'secondary.light',
+                            }}
                             href="https://github.com/johnyenter-briars/reverse-date-parser/issues/new"
-                        > Let me know!
-                        </a>
+                        >
+                            Let me know!
+                        </Link>
                     </p>
                 </Box>
                 <Box
@@ -41,12 +45,15 @@ const Footer: React.FC = () => {
                         }}
 
                     >
-                        Inspired by the wonderfully helpful:
-                        <a
+                        Inspired by the wonderfully ingenious:
+                        <Link
+                            sx={{
+                                color: '#6C1093',
+                            }}
                             href='https://crontab.guru/'
                         >
                             Crontab Guru
-                        </a>
+                        </Link>
                     </Typography>
 
                 </Box>

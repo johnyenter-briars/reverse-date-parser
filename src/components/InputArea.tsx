@@ -37,7 +37,7 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                         value={props.currentString}
                         onChange={props.onUserInput}
                         id="outlined-basic"
-                        label={props.currentLanguage}
+                        label="Date String"
                         InputProps={{
                             autoFocus: true,
                         }}
