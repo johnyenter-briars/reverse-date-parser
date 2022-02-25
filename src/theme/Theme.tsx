@@ -12,14 +12,14 @@ const RdpTheme = createTheme({
     },
     palette: {
         primary: {
-            main: '#77DD77', //light green
+            main: '#98a886', //dark soup green
             light: '#FF0000', //open
-            dark: '#FF0000' //open
+            dark: '#FF0000', //open
         },
         secondary: {
             light: '#BF55EC', //pink
-            dark: '#37505c', //light grey
-            main: '#FF0000', //open
+            dark: '#0C0A3E', //dark blue
+            main: '#C4A69D', //gold??
         },
         background: {
             default: '#FF0000' //open

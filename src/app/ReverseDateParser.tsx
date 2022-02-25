@@ -77,7 +77,7 @@ const ReverseDateParser: React.FC = () => {
                         <Typography
                             variant='body1'
                             sx={{
-                                color: '#B9B8D3',
+                                color: 'secondary.main',
                             }}
                         >
                             Enter a date string into the box below, and see the possible format strings that would parse to it!
@@ -86,7 +86,7 @@ const ReverseDateParser: React.FC = () => {
                             variant='body1'
                             sx={{
                                 marginBottom: '2em',
-                                color: '#B9B8D3',
+                                color: 'secondary.main',
                             }}
                         >
                             Change the language on the right side.

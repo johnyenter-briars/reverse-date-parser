@@ -1,5 +1,5 @@
-import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material';
-import { Box } from '@mui/system';
+import { FormControl, InputLabel, MenuItem, Select, styled, TextField } from '@mui/material';
+import { Box, margin } from '@mui/system';
 import React from 'react';
 import ResultsList from './ResultsList';
 
@@ -11,7 +11,6 @@ interface IInputAreaProps {
     onLanguageSelect: (event: { target: { value: React.SetStateAction<string>; }; }) => void,
 }
 const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
-
     return (
         <Box
             sx={{
@@ -19,7 +18,8 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                 justifyContent: 'center',
                 margin: 'auto',
                 borderRadius: '25px',
-                border: '2px solid #73AD21',
+                border: '2px solid',
+                borderColor: 'primary.main',
             }}
         >
             <Box
@@ -31,28 +31,31 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     margin: '10px',
                 }}
             >
-                <Box
-                    sx={{
-                    }}
-                >
+                <Box>
                     <TextField
+                        variant="standard"
                         value={props.currentString}
                         onChange={props.onUserInput}
                         id="outlined-basic"
-                        label={props.currentLanguage}
-                        variant="filled"
+                        label="Date String"
+                        InputProps={{
+                            autoFocus: true,
+                        }}
                         sx={{
+                            '& .MuiInput-underline:after': { borderBottomColor: 'secondary.main' },
+                            '& .MuiInputLabel-standard': { color: 'secondary.main' },
+                            '& .Mui-focused': { color: 'secondary.main' },
                             textField: {
                                 width: '90%',
                                 marginLeft: 'auto',
                                 marginRight: 'auto',
                                 paddingBottom: 0,
                                 marginTop: 0,
-                                fontWeight: 500
+                                fontWeight: 500,
                             },
                             input: {
                                 color: 'secondary.light'
-                            }
+                            },
 
                         }}
                     />
@@ -67,14 +70,23 @@ const InputArea: React.FC<IInputAreaProps> = (props: IInputAreaProps) => {
                     margin: '10px',
                 }}
             >
-                <FormControl variant="filled" sx={{ minWidth: 120 }}>
-                    <InputLabel id="language-input-label">Language</InputLabel>
+                <FormControl variant="standard" sx={{ minWidth: 120 }}>
+                    <InputLabel 
+                        id="language-input-label"
+                        sx={{
+                            color: 'secondary.main',
+                        }}
+                    >Language</InputLabel>
                     <Select
                         labelId="select"
                         id="select"
+                        label="test"
                         value={props.currentLanguage}
                         onChange={props.onLanguageSelect}
+                        variant="standard"
                         sx={{
+                            '& .MuiInput-underline:before': { borderBottomColor: 'secondary.main' },
+                            '& .MuiInput-underline:after': { borderBottomColor: 'red' },
                             color: 'secondary.light',
                         }}
                     >

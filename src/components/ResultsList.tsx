@@ -31,7 +31,7 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
                             >
                                 <Box
                                     sx={{
-                                        bgcolor: '#6E75A8',
+                                        bgcolor: 'primary.main',
                                         display: 'flex',
                                         borderRadius: '5px',
                                         border: '2px solid #90C3C8',
@@ -41,7 +41,8 @@ const ResultsList: React.FC<IResultsListProps> = (props: IResultsListProps) => {
                                         primary={option}
                                         sx={{
                                             textAlign: 'center',
-                                            margin: 'auto'
+                                            margin: 'auto',
+                                            color: 'secondary.dark',
                                         }}
                                     />
                                     <CopyToClipboard>

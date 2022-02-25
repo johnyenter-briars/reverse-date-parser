@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 
 const Footer: React.FC = () => {
     return (
@@ -14,13 +14,20 @@ const Footer: React.FC = () => {
             >
                 <Box
                     sx={{
-                        bgcolor: 'secondary.dark',
+                        color: 'secondary.main',
                     }}
                 >
-                    Issue with this page?
-                    <a
-                        href="https://github.com/johnyenter-briars/reverse-date-parser/issues/new"
-                    > Let me know!</a>
+                    <p>
+                        Issue with this page?
+                        <Link
+                            sx={{
+                                color: 'secondary.light',
+                            }}
+                            href="https://github.com/johnyenter-briars/reverse-date-parser/issues/new"
+                        >
+                            Let me know!
+                        </Link>
+                    </p>
                 </Box>
                 <Box
                     sx={{
@@ -38,22 +45,27 @@ const Footer: React.FC = () => {
                         }}
 
                     >
-                        Inspired by the wonderfully essential:
-                        <a
+                        Inspired by the wonderfully ingenious:
+                        <Link
+                            sx={{
+                                color: '#6C1093',
+                            }}
                             href='https://crontab.guru/'
                         >
                             Crontab Guru
-                        </a>
+                        </Link>
                     </Typography>
 
                 </Box>
                 <Box
 
                     sx={{
-                        bgcolor: 'secondary.dark',
+                        color: 'secondary.main',
                     }}
                 >
-                    &copy; 2021-2022 John Yenter-Briars
+                    <p>
+                        &copy; 2021-2022 John Yenter-Briars
+                    </p>
                 </Box>
             </Box>
         </footer>
