@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
                         }}
 
                     >
-                        Inspired by the wonderfully ingenious:
+                        Inspired by the wonderfully ingenious:&nbsp;
                         <Link
                             sx={{
                                 color: '#6C1093',
