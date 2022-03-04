@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 const defaultStringOptions = [
     ["12/03/0001", "C#"],
     ["2019-12-24", "Python"],
-    ["Feb 21 2021", "Python"],
+    ["0003 21 12", "C#"],
 ];
 
 const ReverseDateParser: React.FC = () => {
