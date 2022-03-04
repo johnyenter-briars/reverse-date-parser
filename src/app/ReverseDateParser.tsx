@@ -89,7 +89,7 @@ const ReverseDateParser: React.FC = () => {
                                 color: 'secondary.main',
                             }}
                         >
-                            Change the language on the right side.
+                            Change the target language using the select dropdown.
                         </Typography>
                         <InputArea
                             currentLanguage={currentLanguage}

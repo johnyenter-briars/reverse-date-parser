@@ -45,10 +45,10 @@ export function parseDateString(dateString: string, languageChoice: string): str
 
     if (finalSplit === undefined) return new Array<string>();
 
-    let dateElements = finalSplit?.splitStringArray;
+    let dateElements = finalSplit?.splitStringArray!;
 
-    // Needs to be date nicly split into three sections
-    if (dateElements?.length !== 3) return new Array<string>();
+    // Needs to be date nicly split into at least three sections
+    if (dateElements?.length < 3) return new Array<string>();
 
     let possibleElements = findGrammar(languageChoice)
 

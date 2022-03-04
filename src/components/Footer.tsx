@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
                     }}
                 >
                     <p>
-                        Issue with this page?
+                        &nbsp; Issue with this page? &nbsp;
                         <Link
                             sx={{
                                 color: 'secondary.light',
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                     }}
                 >
                     <p>
-                        &copy; 2021-2022 John Yenter-Briars
+                        &copy; 2021-2022 John Yenter-Briars &nbsp; 
                     </p>
                 </Box>
             </Box>
